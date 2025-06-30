@@ -2,11 +2,13 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/home'
 
+
 const nkoto = createBrowserRouter([
   {
     path:"/home",
     element: <Home/>
 },
+
 
 ])
 
