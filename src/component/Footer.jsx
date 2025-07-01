@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-amber-400">Hans</span>
+              <span className="text-2xl font-bold text-amber-400">Hans Shea</span>
               <span className="text-2xl font-light text-green-400 ml-1">Organic</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -20,13 +20,13 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex space-x-4">
               <a 
-                href="#" 
+                href="https://www.facebook.com/share/1DJU9hdN62/" target='blank'
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <Facebook size={20} />
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg==" target='blank'
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <Instagram size={20} />
@@ -70,11 +70,11 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-amber-400" />
-                <span className="text-gray-300">hello@hansorganic.com</span>
+                <span className="text-gray-300">hansshea3gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-amber-400" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+233 54 032 1094 </span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-amber-400 mt-1" />
@@ -104,7 +104,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <span>&copy; 2024 Hans Organic. All rights reserved.</span>
+              <span>&copy; 2025 Hans Shea Organic. All rights reserved.</span>
               <span>|</span>
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <span>|</span>
