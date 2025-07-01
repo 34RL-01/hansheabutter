@@ -5,9 +5,14 @@ import Home from './pages/home'
 
 const nkoto = createBrowserRouter([
   {
-    path:"/home",
-    element: <Home/>
-},
+    path: "/",
+    element: <Home />
+  },
+
+  {
+    path: "/home",
+    element: <Home />
+  },
 
 
 ])

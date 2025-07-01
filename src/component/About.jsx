@@ -1,4 +1,5 @@
 import { Heart, Leaf, Users } from 'lucide-react';
+import clearGgirl from '../assets/images/clearGgirl.jpeg';
 
 
 export default function About() {
@@ -10,21 +11,21 @@ return (
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.pexels.com/photos/4041391/pexels-photo-4041391.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-                alt="Shea butter sourcing in Ghana"
-                className="w-full h-[500px] object-cover"
+                src={clearGgirl}
+                alt="Hans Shea Organic butter"
+                className="w-full h-[500px] object-contain"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
             
-            {/* Floating Card */}
+            {/* Floating Card
             <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg max-w-xs">
               <div className="flex items-center gap-3 mb-2">
                 <Heart className="text-red-500" size={24} />
                 <span className="font-semibold text-gray-800">Made with Love</span>
               </div>
               <p className="text-sm text-gray-600">From Ghana's women cooperatives to your skin</p>
-            </div>
+            </div> */}
           </div>
 
           {/* Content Side */}
