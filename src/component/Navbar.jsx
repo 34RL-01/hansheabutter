@@ -57,11 +57,11 @@ export default function Navbar() {
             }`}
         >
           <nav className="flex flex-col space-y-4 px-4">
-            <a href="#home" className="text-gray-700 hover:text-amber-700 transition-colors">Home</a>
-            <a href="#about" className="text-gray-700 hover:text-amber-700 transition-colors">About</a>
-            <a href="#products" className="text-gray-700 hover:text-amber-700 transition-colors">Products</a>
-            <a href="#benefits" className="text-gray-700 hover:text-amber-700 transition-colors">Benefits</a>
-            <a href="#contact" className="text-gray-700 hover:text-amber-700 transition-colors">Contact</a>
+            <a href="#home" className="text-lime-500 hover:text-amber-700 transition-colors">Home</a>
+            <a href="#about" className="text-lime-500 hover:text-amber-700 transition-colors">About</a>
+            <a href="#products" className="text-lime-500 hover:text-amber-700 transition-colors">Products</a>
+            <a href="#benefits" className="text-lime-500 hover:text-amber-700 transition-colors">Benefits</a>
+            <a href="#contact" className="text-lime-500 hover:text-amber-700 transition-colors">Contact</a>
           </nav>
         </div>
       </div>
