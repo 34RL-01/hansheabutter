@@ -76,11 +76,15 @@ export default function Footer() {
                 <Phone size={18} className="text-amber-400" />
                 <span className="text-gray-300">+233 54 032 1094 </span>
               </div>
+              <div className="flex items-center gap-3">
+                 <Phone size={18} className="text-amber-400" />
+                <span className="text-gray-300">+39 328 342 3747 </span>
+              </div>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-amber-400 mt-1" />
                 <span className="text-gray-300">
-                  123 Natural Way<br />
-                  San Francisco, CA 94102
+                  GS-0155-3255<br />
+                  Pokuase, Accra
                 </span>
               </div>
             </div>

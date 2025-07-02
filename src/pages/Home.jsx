@@ -10,12 +10,14 @@ import Benefits from "../component/Benefits";
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <HeroSection />
-      <About />
-      <Product />
-      <Benefits />
-      <Footer />
+      <div className="min-h-screen">
+        <Navbar />
+        <HeroSection />
+        <About />
+        <Product />
+        <Benefits />
+        <Footer />
+      </div>
     </>
   );
 }

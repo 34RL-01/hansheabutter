@@ -16,12 +16,12 @@ export default function HeroSection() {
           Nourish Your Skin Naturally
         </h1>
         <p className="text-lg text-white mb-6 leading-relaxed">
-          Pure, handcrafted shea butter sourced directly from women’s cooperatives in Ghana.
+          Discover the ancient beauty secrets of Ghana with our ethically sourced, organic shea butter that transforms your skin naturally.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <a
             href="#contact"
-            className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-full transition duration-300 shadow"
+            className="border border-green-700 text-green-700 hover:bg-green-700 hover:text-white px-6 py-3 rounded-full transition duration-300 shadow"
           >
             Order Now
           </a>
