@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
-// ✅ Make sure these paths are correct and the files exist
 import hansheas3 from '../assets/images/hansheas3.jpg';
 import hanshea1 from '../assets/images/hanshea1.jpg';
 import hansheass1 from '../assets/images/hansheass1.jpg';
@@ -48,32 +47,28 @@ const TestimonialCarousel = () => {
     const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
     const goTo = (index) => setCurrent(index);
 
-    // Clear and reset autoplay timer
-    const handleNext = () => {
-        clearTimeout(timeoutRef.current);
-        next();
-    };
-
-    const handlePrev = () => {
-        clearTimeout(timeoutRef.current);
-        prev();
-    };
-
-    const handleGoTo = (index) => {
-        clearTimeout(timeoutRef.current);
-        goTo(index);
-    };
-
+    // Clear and reset autoplay timer on desktop only
     useEffect(() => {
-        timeoutRef.current = setTimeout(() => {
-            next();
-        }, 5000);
+        const isDesktop = window.innerWidth >= 768;
+
+        if (isDesktop) {
+            timeoutRef.current = setTimeout(() => {
+                next();
+            }, 5000);
+        }
+
         return () => clearTimeout(timeoutRef.current);
     }, [current]);
 
     const handlers = useSwipeable({
-        onSwipedLeft: handleNext,
-        onSwipedRight: handlePrev,
+        onSwipedLeft: () => {
+            clearTimeout(timeoutRef.current);
+            next();
+        },
+        onSwipedRight: () => {
+            clearTimeout(timeoutRef.current);
+            prev();
+        },
         preventScrollOnSwipe: true,
         trackMouse: true,
     });
@@ -97,7 +92,7 @@ const TestimonialCarousel = () => {
                                 key={index}
                                 className={`min-w-full flex-shrink-0 ${review.bg} text-[#4e2d32] p-6 md:p-10 flex flex-col items-center md:flex-row`}
                             >
-                                {/* ✅ Ensure image is always visible and centered on mobile */}
+                                {/* Responsive image wrapper */}
                                 <div className="flex justify-center w-full md:w-auto mb-4 md:mb-0 md:mr-6">
                                     <img
                                         src={review.image}
@@ -118,7 +113,7 @@ const TestimonialCarousel = () => {
                     {/* Arrows */}
                     <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
                         <button
-                            onClick={handlePrev}
+                            onClick={prev}
                             className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
                         >
                             &#8592;
@@ -126,7 +121,7 @@ const TestimonialCarousel = () => {
                     </div>
                     <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
                         <button
-                            onClick={handleNext}
+                            onClick={next}
                             className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
                         >
                             &#8594;
@@ -139,9 +134,11 @@ const TestimonialCarousel = () => {
                     {testimonials.map((_, idx) => (
                         <button
                             key={idx}
-                            className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'
-                                } transition`}
-                            onClick={() => handleGoTo(idx)}
+                            className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'} transition`}
+                            onClick={() => {
+                                clearTimeout(timeoutRef.current);
+                                goTo(idx);
+                            }}
                         ></button>
                     ))}
                 </div>
