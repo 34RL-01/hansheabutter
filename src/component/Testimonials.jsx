@@ -18,24 +18,23 @@ const testimonials = [
         image: hanshea1,
         title: 'Body Treatment Bliss',
         name: 'Yaa.',
-        feedback:
-            'This shea butter has completely transformed my dry skin! I love knowing it is ethically sourced and supports women in Ghana. The quality is absolutely amazing.',
+        feedback:'This shea butter has completely transformed my dry skin! I love knowing it is ethically sourced and supports women in Ghana.',
         bg: 'bg-[#fdf4eb]',
     },
-    {
-        image: hansheass1,
-        title: 'So Refreshed!',
-        name: 'Ama.',
-        feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
-        bg: 'bg-[#fbeeee]',
-    },
-    {
-        image: sheahan2,
-        title: 'So Refreshed!',
-        name: 'Akua.',
-        feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
-        bg: 'bg-[#fbeeee]',
-    },
+    // {
+    //     image: hansheass1,
+    //     title: 'So Refreshed!',
+    //     name: 'Ama.',
+    //     feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
+    //     bg: 'bg-[#fbeeee]',
+    // },
+    // {
+    //     image: sheahan2,
+    //     title: 'So Refreshed!',
+    //     name: 'Akua.',
+    //     feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
+    //     bg: 'bg-[#fbeeee]',
+    // },
 ];
 
 const TestimonialCarousel = () => {
@@ -48,29 +47,11 @@ const TestimonialCarousel = () => {
     const goTo = (index) => setCurrent(index);
 
     useEffect(() => {
-        const isDesktop = window.innerWidth >= 768;
-
-        if (isDesktop) {
-            timeoutRef.current = setTimeout(() => {
-                next();
-            }, 5000);
-        }
-
+        timeoutRef.current = setTimeout(() => {
+            setCurrent((prev) => (prev + 1) % total);
+        }, 5000);
         return () => clearTimeout(timeoutRef.current);
     }, [current]);
-
-    const handlers = useSwipeable({
-        onSwipedLeft: () => {
-            clearTimeout(timeoutRef.current);
-            next();
-        },
-        onSwipedRight: () => {
-            clearTimeout(timeoutRef.current);
-            prev();
-        },
-        preventScrollOnSwipe: true,
-        trackMouse: true,
-    });
 
     return (
         <section className="bg-gradient-to-b from-amber-100 to-amber-50 text-white py-16 px-4 md:px-12">
@@ -81,39 +62,31 @@ const TestimonialCarousel = () => {
                 </p>
 
                 {/* Carousel */}
-                <div {...handlers} className="relative overflow-hidden rounded-3xl shadow-lg touch-manipulation">
+                <div className="relative overflow-hidden rounded-3xl shadow-lg">
                     <div
-                        className="flex transition-transform duration-1000 ease-in-out"
+                        className={`flex transition-transform duration-700 ease-in-out`}
                         style={{ transform: `translateX(-${current * 100}%)`, width: `${total * 100}%` }}
                     >
                         {testimonials.map((review, index) => (
                             <div
                                 key={index}
-                                className={`min-w-full flex-shrink-0 ${review.bg} text-[#4e2d32] p-6 md:p-10 flex flex-col items-center md:flex-row`}
+                                className={`w-full flex-shrink-0 ${review.bg} text-[#4e2d32] p-6 md:p-10 flex flex-col md:flex-row items-center`}
                             >
-                                {/* Fixed image container for mobile */}
-                                <div className="flex justify-center items-center w-full md:w-auto min-h-[140px] mb-4 md:mb-0 md:mr-6">
-                                    <img
-                                        src={review.image}
-                                        alt={review.name}
-                                        className="w-32 h-32 md:w-48 md:h-48 object-cover rounded-full"
-                                        loading="lazy"
-                                        onError={(e) => {
-                                            e.target.style.display = 'none';
-                                        }}
-                                    />
-                                </div>
-
+                                <img
+                                    src={review.image}
+                                    alt={review.name}
+                                    className="w-48 h-48 object-cover rounded-full mb-4 md:mb-0 md:mr-6"
+                                />
                                 <div className="text-left">
                                     <h3 className="text-xl font-semibold">{review.title}</h3>
                                     <p className="text-sm mt-2 italic">"{review.feedback}"</p>
-                                    <p className="mt-4 font-semibold text-[#491717]">— {review.name}</p>
+                                    <p className="mt-4 font-semibold text-[#7e4d4d]">— {review.name}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Arrows */}
+                    {/* Controls */}
                     <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
                         <button
                             onClick={prev}
@@ -132,17 +105,14 @@ const TestimonialCarousel = () => {
                     </div>
                 </div>
 
-                {/* Dot indicators */}
+                {/* Dot Indicators */}
                 <div className="flex justify-center mt-6 space-x-3">
                     {testimonials.map((_, idx) => (
                         <button
                             key={idx}
                             className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'
                                 } transition`}
-                            onClick={() => {
-                                clearTimeout(timeoutRef.current);
-                                goTo(idx);
-                            }}
+                            onClick={() => goTo(idx)}
                         ></button>
                     ))}
                 </div>
