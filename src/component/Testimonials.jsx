@@ -58,11 +58,11 @@ const TestimonialCarousel = () => {
     }, [current]);
 
     const handlers = useSwipeable({
-    onSwipedLeft: next,
-    onSwipedRight: prev,
-    preventScrollOnSwipe: true,
-    trackMouse: true,
-});
+        onSwipedLeft: next,
+        onSwipedRight: prev,
+        preventScrollOnSwipe: true,
+        trackMouse: true,
+    });
 
 
     return (
@@ -90,6 +90,7 @@ const TestimonialCarousel = () => {
                                     className="w-48 h-48 object-cover rounded-full mb-4 md:mb-0 md:mr-6"
                                     loading="lazy"
                                 />
+
 
                                 <div className="text-left">
                                     <h3 className="text-xl font-semibold">{review.title}</h3>
