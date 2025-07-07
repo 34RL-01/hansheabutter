@@ -27,13 +27,7 @@ const testimonials = [
         feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
         bg: 'bg-[#fbeeee]',
     },
-    //   {
-    //     image: require('../assets/images/acne-solution.jpg'), // Add this image to your assets folder
-    //     title: 'Clear Skin Journey',
-    //     name: 'Noah T.',
-    //     feedback: 'After struggling with acne for years, their treatment made a real difference.',
-    //     bg: 'bg-[#fdf4eb]',
-    //   },
+    
 ];
 
 
