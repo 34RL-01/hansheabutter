@@ -5,6 +5,7 @@ import Footer from "../component/Footer";
 import About from "../component/About";
 import Product from "../component/Product";
 import Benefits from "../component/Benefits";
+import Testimonials from  "../component/Testimonials";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         <Product />
         <Benefits />
+        <Testimonials />
         <Footer />
       </div>
     </>

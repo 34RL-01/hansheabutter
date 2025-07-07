@@ -27,10 +27,10 @@ export default function Navbar() {
 
           {/* 🧭 Center Navigation */}
           <nav className="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2">
-            <a href="#home" className="text-gray-700 hover:text-amber-700 transition-all duration-200">Home</a>
-            <a href="#about" className="text-gray-700 hover:text-amber-700 transition-all duration-200">About</a>
-            <a href="#products" className="text-gray-700 hover:text-amber-700 transition-all duration-200">Products</a>
-            <a href="#benefits" className="text-gray-700 hover:text-amber-700 transition-all duration-200">Benefits</a>
+            <a href="#home" className="text-amber-500 hover:text-amber-700 transition-all duration-200">Home</a>
+            <a href="#about" className="text-amber-500 hover:text-amber-700 transition-all duration-200">About</a>
+            <a href="#products" className="text-amber-500 hover:text-amber-700 transition-all duration-200">Products</a>
+            <a href="#benefits" className="text-amber-500 hover:text-amber-700 transition-all duration-200">Benefits</a>
           </nav>
 
           {/* 📞 Contact + Mobile Toggle */}
@@ -39,7 +39,7 @@ export default function Navbar() {
               href="#contact"
               className="hidden md:inline-block bg-amber-600 text-white px-4 py-1.5 rounded-full hover:bg-amber-700 transition"
             >
-              Contact
+              Contact Us
             </a>
             <button
               className="md:hidden text-gray-800"

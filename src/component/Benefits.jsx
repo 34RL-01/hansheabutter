@@ -82,7 +82,7 @@ export default function Benefits() {
                             ethically-sourced skin care.
                         </p>
                         <button className="bg-gradient-to-r from-amber-600 to-green-600 hover:from-amber-700 hover:to-green-700 text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105">
-                            Order now
+                            Contact Us
                         </button>
                     </div>
                 </div>

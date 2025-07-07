@@ -13,7 +13,7 @@ export default function About() {
               <img
                 src={clearGgirl}
                 alt="Hans Shea Organic butter"
-                className="w-full h-[500px] object-contain"
+                className="w-full h-[650px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
@@ -41,7 +41,7 @@ export default function About() {
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               Hans Organic Shea Butter Cosmetics is a proudly Ghanaian brand dedicated to producing unrefined, organic shea butter and a full line of handcrafted skincare products. Our offerings include raw shea butter, body creams, soaps, and shampoos—each carefully sourced and produced to maintain the natural healing properties of shea.
             </p>
-            <span className='text-green-500 font-semibold text-lg'>🌿 Purpose & Sourcing</span>
+            <span className='text-green-500 font-semibold text-lg'>Purpose & Sourcing</span>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               We believe nature provides the purest solutions for skincare. That’s why our shea butter is Grade A, unrefined, and ethically sourced from women’s cooperatives in Northern Ghana. Rich in natural vitamins A, E, and F, our products retain their creamy texture and healing potency—making them ideal for both personal use and commercial wholesale.
 

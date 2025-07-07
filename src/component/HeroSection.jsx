@@ -1,4 +1,3 @@
-import sheaButter1 from '../assets/images/sheaButter1.jpg';
 import blackgril2 from '../assets/images/blackgril2.jpeg';
 
 export default function HeroSection() {
@@ -16,14 +15,14 @@ export default function HeroSection() {
           Nourish Your Skin Naturally
         </h1>
         <p className="text-lg text-white mb-6 leading-relaxed">
-          Discover the ancient beauty secrets of Ghana with our ethically sourced, organic shea butter that transforms your skin naturally.
+          Pure, handcrafted shea butter sourced directly from women’s cooperatives in Ghana.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <a
-            href="#contact"
-            className="border border-green-700 text-green-700 hover:bg-green-700 hover:text-white px-6 py-3 rounded-full transition duration-300 shadow"
+            href="#products"
+            className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-full transition duration-300 shadow"
           >
-            Order Now
+            View Product
           </a>
           <a
             href="#about"

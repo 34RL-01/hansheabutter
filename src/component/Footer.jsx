@@ -1,7 +1,10 @@
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import tiktokIcon from '../assets/images/tiktokIcon.png'
+import whatsappIcon from '../assets/images/whatsappIcon.png'
 
-export default function Footer() { 
- return (
+
+export default function Footer() {
+  return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -13,29 +16,50 @@ export default function Footer() {
               <span className="text-2xl font-light text-green-400 ml-1">Organic</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Bringing you the finest organic shea butter from Ghana, 
+              Bringing you the finest organic shea butter from Ghana,
               ethically sourced and crafted with love for your skin's health.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4">
-              <a 
-                href="https://www.facebook.com/share/1DJU9hdN62/" target='blank'
+              
+              {/* WhatsApp (PNG) */}
+              <a
+                href="https://wa.me/233540321094"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
+              >
+                <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
+              </a>
+
+              {/* TikTok (PNG) */}
+              <a
+                href="https://www.tiktok.com/@hans.shea3"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
+              >
+                <img src={tiktokIcon} alt="TikTok" className="w-5 h-5" />
+              </a>
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/share/1DJU9hdN62/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <Facebook size={20} />
               </a>
-              <a 
-                href="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg==" target='blank'
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg=="
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <Instagram size={20} />
-              </a>
-              <a 
-                href="#" 
-                className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
-              >
-                <Twitter size={20} />
               </a>
             </div>
           </div>
@@ -58,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Story</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Sustainability</a></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Testimonial</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Fair Trade</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Blog</a></li>
             </ul>
@@ -77,7 +101,7 @@ export default function Footer() {
                 <span className="text-gray-300">+233 54 032 1094 </span>
               </div>
               <div className="flex items-center gap-3">
-                 <Phone size={18} className="text-amber-400" />
+                <Phone size={18} className="text-amber-400" />
                 <span className="text-gray-300">+39 328 342 3747 </span>
               </div>
               <div className="flex items-start gap-3">
@@ -95,7 +119,6 @@ export default function Footer() {
               <ul className="space-y-1">
                 <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">FAQ</a></li>
                 <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Shipping Info</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Returns</a></li>
                 <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Contact Support</a></li>
               </ul>
             </div>
@@ -114,10 +137,9 @@ export default function Footer() {
               <span>|</span>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
             </div>
-            
+
             <div className="flex items-center gap-2 text-sm text-gray-400">
               <span>Made with</span>
-              <Heart size={16} className="text-red-500 fill-current" />
               <span>from Ghana</span>
               <span className="text-yellow-400">🇬🇭</span>
             </div>
