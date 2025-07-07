@@ -10,14 +10,14 @@ const testimonials = [
     {
         image: hansheas3,
         title: 'Amazing Face Treatment!',
-        name: 'Emily R.',
+        name: 'Akosua.',
         feedback: 'The hydrating facial left my skin glowing for days. Highly recommend!',
         bg: 'bg-[#fdf4eb]',
     },
     {
         image: hanshea1,
         title: 'Body Treatment Bliss',
-        name: 'Sophia M.',
+        name: 'Yaa.',
         feedback:
             'This shea butter has completely transformed my dry skin! I love knowing it is ethically sourced and supports women in Ghana. The quality is absolutely amazing.',
         bg: 'bg-[#fdf4eb]',
@@ -25,14 +25,14 @@ const testimonials = [
     {
         image: hansheass1,
         title: 'So Refreshed!',
-        name: 'Liam A.',
+        name: 'Ama.',
         feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
         bg: 'bg-[#fbeeee]',
     },
     {
         image: sheahan2,
         title: 'So Refreshed!',
-        name: 'Liam A.',
+        name: 'Akua.',
         feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
         bg: 'bg-[#fbeeee]',
     },
@@ -47,7 +47,6 @@ const TestimonialCarousel = () => {
     const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
     const goTo = (index) => setCurrent(index);
 
-    // Clear and reset autoplay timer on desktop only
     useEffect(() => {
         const isDesktop = window.innerWidth >= 768;
 
@@ -92,15 +91,19 @@ const TestimonialCarousel = () => {
                                 key={index}
                                 className={`min-w-full flex-shrink-0 ${review.bg} text-[#4e2d32] p-6 md:p-10 flex flex-col items-center md:flex-row`}
                             >
-                                {/* Responsive image wrapper */}
-                                <div className="flex justify-center w-full md:w-auto mb-4 md:mb-0 md:mr-6">
+                                {/* Fixed image container for mobile */}
+                                <div className="flex justify-center items-center w-full md:w-auto min-h-[140px] mb-4 md:mb-0 md:mr-6">
                                     <img
                                         src={review.image}
                                         alt={review.name}
                                         className="w-32 h-32 md:w-48 md:h-48 object-cover rounded-full"
                                         loading="lazy"
+                                        onError={(e) => {
+                                            e.target.style.display = 'none';
+                                        }}
                                     />
                                 </div>
+
                                 <div className="text-left">
                                     <h3 className="text-xl font-semibold">{review.title}</h3>
                                     <p className="text-sm mt-2 italic">"{review.feedback}"</p>
@@ -129,12 +132,13 @@ const TestimonialCarousel = () => {
                     </div>
                 </div>
 
-                {/* Dots */}
+                {/* Dot indicators */}
                 <div className="flex justify-center mt-6 space-x-3">
                     {testimonials.map((_, idx) => (
                         <button
                             key={idx}
-                            className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'} transition`}
+                            className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'
+                                } transition`}
                             onClick={() => {
                                 clearTimeout(timeoutRef.current);
                                 goTo(idx);
