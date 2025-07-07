@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import hansheas3 from '../assets/images/hansheas3.jpg'
-import hanshea1 from '../assets/images/hanshea1.jpg'
-import hansheass1 from '../assets/images/hansheass1.jpg'
-import sheahan2 from '../assets/images/sheahan2.jpg'
-
+import hansheas3 from '../assets/images/hansheas3.jpg';
+import hanshea1 from '../assets/images/hanshea1.jpg';
+import hansheass1 from '../assets/images/hansheass1.jpg';
+import sheahan2 from '../assets/images/sheahan2.jpg';
 
 const testimonials = [
     {
@@ -18,7 +17,8 @@ const testimonials = [
         image: hanshea1,
         title: 'Body Treatment Bliss',
         name: 'Sophia M.',
-        feedback: 'This shea butter has completely transformed my dry skin! I love knowing it is ethically sourced and supports women in Ghana. The quality is absolutely amazing.',
+        feedback:
+            'This shea butter has completely transformed my dry skin! I love knowing it is ethically sourced and supports women in Ghana. The quality is absolutely amazing.',
         bg: 'bg-[#fdf4eb]',
     },
     {
@@ -35,9 +35,7 @@ const testimonials = [
         feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
         bg: 'bg-[#fbeeee]',
     },
-
 ];
-
 
 const TestimonialCarousel = () => {
     const [current, setCurrent] = useState(0);
@@ -48,25 +46,40 @@ const TestimonialCarousel = () => {
     const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
     const goTo = (index) => setCurrent(index);
 
+    // Reset timer on manual actions
+    const handleNext = () => {
+        clearTimeout(timeoutRef.current);
+        next();
+    };
+
+    const handlePrev = () => {
+        clearTimeout(timeoutRef.current);
+        prev();
+    };
+
+    const handleGoTo = (index) => {
+        clearTimeout(timeoutRef.current);
+        goTo(index);
+    };
+
+    // Autoplay effect
     useEffect(() => {
-        const id = setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
             next();
         }, 5000);
-        timeoutRef.current = id;
 
-        return () => clearTimeout(id);
+        return () => clearTimeout(timeoutRef.current);
     }, [current]);
 
     const handlers = useSwipeable({
-        onSwipedLeft: next,
-        onSwipedRight: prev,
+        onSwipedLeft: handleNext,
+        onSwipedRight: handlePrev,
         preventScrollOnSwipe: true,
         trackMouse: true,
     });
 
-
     return (
-        <section className=" bg-gradient-to-b from-amber-100 to-amber-50 text-white py-16 px-4 md:px-12">
+        <section className="bg-gradient-to-b from-amber-100 to-amber-50 text-white py-16 px-4 md:px-12">
             <div className="max-w-5xl mx-auto text-center">
                 <h2 className="text-3xl font-semibold text-green-800 mb-4">What Our Clients Say</h2>
                 <p className="text-amber-700 mb-8 max-w-xl mx-auto">
@@ -74,9 +87,12 @@ const TestimonialCarousel = () => {
                 </p>
 
                 {/* Carousel */}
-                <div {...handlers} className="relative overflow-hidden rounded-3xl shadow-lg">
+                <div
+                    {...handlers}
+                    className="relative overflow-hidden rounded-3xl shadow-lg touch-manipulation"
+                >
                     <div
-                        className={`flex transition-transform duration-600 ease-in-out`}
+                        className={`flex transition-transform duration-1000 ease-in-out`}
                         style={{ transform: `translateX(-${current * 100}%)`, width: `${total * 100}%` }}
                     >
                         {testimonials.map((review, index) => (
@@ -90,8 +106,6 @@ const TestimonialCarousel = () => {
                                     className="w-48 h-48 object-cover rounded-full mb-4 md:mb-0 md:mr-6"
                                     loading="lazy"
                                 />
-
-
                                 <div className="text-left">
                                     <h3 className="text-xl font-semibold">{review.title}</h3>
                                     <p className="text-sm mt-2 italic">"{review.feedback}"</p>
@@ -104,7 +118,7 @@ const TestimonialCarousel = () => {
                     {/* Controls */}
                     <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
                         <button
-                            onClick={prev}
+                            onClick={handlePrev}
                             className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
                         >
                             &#8592;
@@ -112,7 +126,7 @@ const TestimonialCarousel = () => {
                     </div>
                     <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
                         <button
-                            onClick={next}
+                            onClick={handleNext}
                             className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
                         >
                             &#8594;
@@ -127,7 +141,7 @@ const TestimonialCarousel = () => {
                             key={idx}
                             className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'
                                 } transition`}
-                            onClick={() => goTo(idx)}
+                            onClick={() => handleGoTo(idx)}
                         ></button>
                     ))}
                 </div>
