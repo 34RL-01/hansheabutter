@@ -59,7 +59,7 @@ const TestimonialCarousel = () => {
     onSwipedLeft: next,
     onSwipedRight: prev,
     preventScrollOnSwipe: true,
-    trackMouse: true, // Allows swipe with mouse on desktop
+    trackMouse: true,
 });
 
 
