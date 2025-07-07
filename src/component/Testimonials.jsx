@@ -76,7 +76,7 @@ const TestimonialCarousel = () => {
                 {/* Carousel */}
                 <div {...handlers} className="relative overflow-hidden rounded-3xl shadow-lg">
                     <div
-                        className={`flex transition-transform duration-700 ease-in-out`}
+                        className={`flex transition-transform duration-600 ease-in-out`}
                         style={{ transform: `translateX(-${current * 100}%)`, width: `${total * 100}%` }}
                     >
                         {testimonials.map((review, index) => (
