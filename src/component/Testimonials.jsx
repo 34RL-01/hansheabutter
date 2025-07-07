@@ -1,25 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import hansimage4 from '../assets/images/hansimage4.jpg';
-import hansimage5 from '../assets/images/hansimage5.jpg';
 import hansimage3 from '../assets/images/hansimage3.jpg';
 
 
 const testimonials = [
-    {
-        image: hansimage4,
-        title: 'Amazing Face Treatment!',
-        name: 'Emily R.',
-        feedback: 'The hydrating facial left my skin glowing for days. Highly recommend!',
-        bg: 'bg-[#fdf4eb]',
-    },
-    {
-        image: hansimage5,
-        title: 'Body Treatment Bliss',
-        name: 'Sophia M.',
-        feedback: 'This shea butter has completely transformed my dry skin! I love knowing it is ethically sourced and supports women in Ghana. The quality is absolutely amazing.',
-        bg: 'bg-[#fdf4eb]',
-    },
+    // {
+    //     image: ,
+    //     title: 'Amazing Face Treatment!',
+    //     name: 'Emily R.',
+    //     feedback: 'The hydrating facial left my skin glowing for days. Highly recommend!',
+    //     bg: 'bg-[#fdf4eb]',
+    // },
+    // {
+    //     image: ,
+    //     title: 'Body Treatment Bliss',
+    //     name: 'Sophia M.',
+    //     feedback: 'This shea butter has completely transformed my dry skin! I love knowing it is ethically sourced and supports women in Ghana. The quality is absolutely amazing.',
+    //     bg: 'bg-[#fdf4eb]',
+    // },
     {
         image: hansimage3,
         title: 'So Refreshed!',
@@ -27,7 +25,7 @@ const testimonials = [
         feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
         bg: 'bg-[#fbeeee]',
     },
-    
+
 ];
 
 
