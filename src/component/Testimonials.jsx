@@ -46,7 +46,7 @@ const TestimonialCarousel = () => {
     const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
     const goTo = (index) => setCurrent(index);
 
-    // Reset timer on manual actions
+    // Clear and reset timeout
     const handleNext = () => {
         clearTimeout(timeoutRef.current);
         next();
@@ -62,12 +62,11 @@ const TestimonialCarousel = () => {
         goTo(index);
     };
 
-    // Autoplay effect
+    // Autoplay
     useEffect(() => {
         timeoutRef.current = setTimeout(() => {
             next();
         }, 5000);
-
         return () => clearTimeout(timeoutRef.current);
     }, [current]);
 
@@ -87,18 +86,15 @@ const TestimonialCarousel = () => {
                 </p>
 
                 {/* Carousel */}
-                <div
-                    {...handlers}
-                    className="relative overflow-hidden rounded-3xl shadow-lg touch-manipulation"
-                >
+                <div {...handlers} className="relative overflow-hidden rounded-3xl shadow-lg touch-manipulation">
                     <div
-                        className={`flex transition-transform duration-1000 ease-in-out`}
+                        className="flex transition-transform duration-1000 ease-in-out"
                         style={{ transform: `translateX(-${current * 100}%)`, width: `${total * 100}%` }}
                     >
                         {testimonials.map((review, index) => (
                             <div
                                 key={index}
-                                className={`w-full flex-shrink-0 ${review.bg} text-[#4e2d32] p-6 md:p-10 flex flex-col md:flex-row items-center`}
+                                className={`min-w-full flex-shrink-0 ${review.bg} text-[#4e2d32] p-6 md:p-10 flex flex-col md:flex-row items-center`}
                             >
                                 <img
                                     src={review.image}
@@ -134,13 +130,12 @@ const TestimonialCarousel = () => {
                     </div>
                 </div>
 
-                {/* Dot Indicators */}
+                {/* Dots */}
                 <div className="flex justify-center mt-6 space-x-3">
                     {testimonials.map((_, idx) => (
                         <button
                             key={idx}
-                            className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'
-                                } transition`}
+                            className={`w-3 h-3 rounded-full ${idx === current ? 'bg-[#f2b6a0]' : 'bg-white/30'} transition`}
                             onClick={() => handleGoTo(idx)}
                         ></button>
                     ))}
