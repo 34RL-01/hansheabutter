@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import hansheas3 from '../assets/images/hansheas3.jpg';
 import hanshea1 from '../assets/images/hanshea1.jpg';
 import hansheass1 from '../assets/images/hansheass1.jpg';
@@ -39,18 +39,33 @@ const testimonials = [
 const TestimonialCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [fade, setFade] = useState(true);
-
   const total = testimonials.length;
 
-  const changeSlide = (direction) => {
+  const next = () => {
     setFade(false);
     setTimeout(() => {
-      setCurrent((prev) =>
-        direction === 'next' ? (prev + 1) % total : (prev - 1 + total) % total
-      );
+      setCurrent((prev) => (prev + 1) % total);
       setFade(true);
-    }, 100); // short delay before fading in next
+    }, 100);
   };
+
+  const prev = () => {
+    setFade(false);
+    setTimeout(() => {
+      setCurrent((prev) => (prev - 1 + total) % total);
+      setFade(true);
+    }, 100);
+  };
+
+  // Autoplay every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentReview = testimonials[current];
 
   return (
     <section className="bg-gradient-to-b from-amber-100 to-amber-50 text-white py-16 px-4 md:px-12">
@@ -67,17 +82,30 @@ const TestimonialCarousel = () => {
               fade ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div className={`w-full ${testimonials[current].bg} text-[#4e2d32]`}>
+            <div className={`w-full ${currentReview.bg} text-[#4e2d32]`}>
               <div className="p-6 md:p-10 flex flex-col md:flex-row items-center justify-center">
-                <img
-                  src={testimonials[current].image}
-                  alt={testimonials[current].name}
-                  className="w-32 h-32 md:w-48 md:h-48 object-cover rounded-full mb-4 md:mb-0 md:mr-6"
-                />
-                <div className="text-center md:text-left max-w-xs md:max-w-md">
-                  <h3 className="text-xl font-semibold">{testimonials[current].title}</h3>
-                  <p className="text-sm mt-2 italic">"{testimonials[current].feedback}"</p>
-                  <p className="mt-4 font-semibold text-[#491717]">— {testimonials[current].name}</p>
+                {/* Image Fade */}
+                <div
+                  className={`transition-opacity duration-700 ${
+                    fade ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <img
+                    src={currentReview.image}
+                    alt={currentReview.name}
+                    className="w-32 h-32 md:w-48 md:h-48 object-cover rounded-full mb-4 md:mb-0 md:mr-6"
+                  />
+                </div>
+
+                {/* Text Fade */}
+                <div
+                  className={`transition-opacity duration-700 delay-150 ${
+                    fade ? 'opacity-100' : 'opacity-0'
+                  } text-center md:text-left max-w-xs md:max-w-md`}
+                >
+                  <h3 className="text-xl font-semibold">{currentReview.title}</h3>
+                  <p className="text-sm mt-2 italic">"{currentReview.feedback}"</p>
+                  <p className="mt-4 font-semibold text-[#491717]">— {currentReview.name}</p>
                 </div>
               </div>
             </div>
@@ -86,7 +114,7 @@ const TestimonialCarousel = () => {
           {/* Arrows */}
           <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
             <button
-              onClick={() => changeSlide('prev')}
+              onClick={prev}
               className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
             >
               &#8592;
@@ -94,7 +122,7 @@ const TestimonialCarousel = () => {
           </div>
           <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
             <button
-              onClick={() => changeSlide('next')}
+              onClick={next}
               className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
             >
               &#8594;
