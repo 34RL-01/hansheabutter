@@ -1,12 +1,64 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
-import Home from './pages/Home'
+import { lazy, Suspense } from 'react';
+// import Home from './pages/Home'
+// import ContactUs from './pages/Contact'
+
+const Home = lazy(() => import('./pages/Home'));
+const ContactUs = lazy(() => import('./pages/Contact'));
+// const About = lazy(() => import('./pages/About'));
+// const Products = lazy(() => import('./pages/Products'));
+// const Benefits = lazy(() => import('./pages/Benefits'));
 
 
 const nkoto = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: (
+      <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
+        <Home />
+      </Suspense>
+    )
+  },
+  {
+    path: "/Home",
+    element: (
+      <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
+        <Home />
+      </Suspense>
+    )
+  },
+  // {
+  //   path: "/about",
+  //   element: (
+  //     <Suspense fallback={<div>Loading About...</div>}>
+  //       <About />
+  //     </Suspense>
+  //   ),
+  // },
+  // {
+  //   path: "/products",
+  //   element: (
+  //     <Suspense fallback={<div>Loading Products...</div>}>
+  //       <Products />
+  //     </Suspense>
+  //   ),
+  // },
+  // {
+  //   path: "/benefits",
+  //   element: (
+  //     <Suspense fallback={<div>Loading Benefits...</div>}>
+  //       <Benefits />
+  //     </Suspense>
+  //   ),
+  // },
+  {
+    path: "/ContactUs",
+    element: (
+      <Suspense fallback={<div className="text-center mt-20">Loading Contact Page...</div>}>
+        <ContactUs />
+      </Suspense>
+    )
   },
 
 

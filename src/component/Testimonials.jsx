@@ -25,14 +25,14 @@ const testimonials = [
     title: 'So Refreshed!',
     name: 'Liam A.',
     feedback: 'The hydration therapy was soothing and rejuvenating. Loved every second!',
-    bg: 'bg-[#fbeeee]',
+    bg: 'bg-[#fdf4eb]',
   },
   {
     image: sheahan2,
     title: 'Incredible Glow!',
     name: 'Akosua B.',
     feedback: 'My skin has never felt smoother. The experience was beyond relaxing.',
-    bg: 'bg-[#fbeeee]',
+    bg: 'bg-[#fdf4eb]',
   },
 ];
 

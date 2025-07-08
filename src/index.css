@@ -2,6 +2,11 @@
 
 
 
+
+html {
+  scroll-behavior: smooth;
+}
+
 /* 👇 Custom Utilities and Animations */
 @layer utilities {
   .animate-fade-in-up {
