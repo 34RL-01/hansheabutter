@@ -57,10 +57,10 @@ export default function Navbar() {
             }`}
         >
           <nav className="flex flex-col space-y-4 px-4">
-            <a href="#home" className="text-lime-500 hover:text-amber-700 transition-colors">Home</a>
-            <a href="#about" className="text-lime-500 hover:text-amber-700 transition-colors">About</a>
-            <a href="#products" className="text-lime-500 hover:text-amber-700 transition-colors">Products</a>
-            <a href="#benefits" className="text-lime-500 hover:text-amber-700 transition-colors">Benefits</a>
+            <Link to={`/Home`} className="text-lime-500 hover:text-amber-700 transition-colors">Home</Link>
+            <Link to="/#about" className="text-lime-500 hover:text-amber-700 transition-colors">About</Link>
+            <Link to="/#products" className="text-lime-500 hover:text-amber-700 transition-colors">Products</Link>
+            <Link to="/#benefits" className="text-lime-500 hover:text-amber-700 transition-colors">Benefits</Link>
             <Link to ={`/ContactUs`} className="text-lime-500 hover:text-amber-700 transition-colors">Contact</Link>
           </nav>
         </div>

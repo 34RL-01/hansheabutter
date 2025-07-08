@@ -1,6 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import { lazy, Suspense } from 'react';
+import Layout from './Layout';
 // import Home from './pages/Home'
 // import ContactUs from './pages/Contact'
 
@@ -15,17 +16,21 @@ const nkoto = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
-        <Home />
-      </Suspense>
+      <Layout>
+        <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
+          <Home />
+        </Suspense>
+      </Layout>
     )
   },
   {
     path: "/Home",
     element: (
-      <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
-        <Home />
-      </Suspense>
+      <Layout>
+        <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
+          <Home />
+        </Suspense>
+      </Layout>
     )
   },
   // {
