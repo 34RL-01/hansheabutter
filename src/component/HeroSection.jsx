@@ -8,7 +8,6 @@ import face2 from "../assets/images/face2.jpg";
 import face3 from "../assets/images/face3.jpg";
 import face5 from "../assets/images/face5.jpg";
 
-// Array of slides with image, title & caption
 const slides = [
   {
     image: blackgril2,
@@ -34,8 +33,20 @@ const slides = [
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Auto-slide every 5 seconds
+  // Set screen size
+  useEffect(() => {
+    const updateScreen = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    updateScreen();
+    window.addEventListener("resize", updateScreen);
+    return () => window.removeEventListener("resize", updateScreen);
+  }, []);
+
+  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -64,7 +75,7 @@ export default function HeroSection() {
       {...swipeHandlers}
       className="relative h-screen flex items-center justify-center px-6 text-white overflow-hidden"
     >
-      {/* Background with fade & parallax */}
+      {/* Background Image */}
       <AnimatePresence>
         <motion.div
           key={current}
@@ -77,7 +88,7 @@ export default function HeroSection() {
             backgroundImage: `url(${currentSlide.image})`,
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: isMobile ? "top center" : "center",
           }}
         />
       </AnimatePresence>
@@ -85,7 +96,7 @@ export default function HeroSection() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 backdrop-brightness-150 z-0"></div>
 
-      {/* Slide Content */}
+      {/* Content */}
       <div className="relative z-10 p-8 md:p-12 rounded-2xl text-center mt-20 max-w-2xl mx-auto">
         <motion.h1
           className="text-4xl md:text-5xl font-serif text-amber-500 font-bold mb-4 leading-tight"
@@ -126,7 +137,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Arrows */}
       {/* <button
         onClick={handlePrev}
         className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-white bg-black/40 hover:bg-black/60 p-2 rounded-full"
