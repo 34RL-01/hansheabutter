@@ -5,24 +5,21 @@ import tiktokIcon from '../assets/images/tiktokIcon.png';
 import whatsappIcon from '../assets/images/whatsappIcon.png';
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
+import { Link } from 'react-router';
 
 const ContactUs = () => {
   return (
   <>
     <Navbar />
     <section
-      className="relative bg-cover bg-center bg-no-repeat min-h-screen py-16 px-4 pt-30 md:px-12 text-[#4e2d32]"
-      style={{
-        backgroundImage: `url(${face5})`,
-        backgroundBlendMode: 'overlay',
-      }}
+      className="py-20 bg-gradient-to-b from-green-50 to-amber-50"
     >
       {/* Soft overlay for text readability */}
       <div className="absolute inset-0 bg-white/5  z-0"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+      <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 pt-5">
         {/* Left: Contact Info */}
-        <div>
+        <div className='pt-20'>
           <h2 className="text-4xl font-semibold mb-2 text-[#4e2d32] italic">hi, you!</h2>
           <h3 className="text-2xl font-bold mb-6 text-yellow-700">get in touch</h3>
 
@@ -60,44 +57,44 @@ const ContactUs = () => {
           {/* Social Media Icons */}
           <div className="flex gap-3 mt-6">
             {/* WhatsApp */}
-            <a
-              href="https://wa.me/233540321094"
+            <Link to
+              ="https://wa.me/233540321094"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
             >
               <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
-            </a>
+            </Link>
 
             {/* TikTok */}
-            <a
-              href="https://www.tiktok.com/@hans.shea3"
+            <Link to
+              ="https://www.tiktok.com/@hans.shea3"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
             >
               <img src={tiktokIcon} alt="TikTok" className="w-5 h-5" />
-            </a>
+            </Link>
 
             {/* Facebook */}
-            <a
-              href="https://www.facebook.com/share/1DJU9hdN62/"
+            <Link to
+              ="https://www.facebook.com/share/1DJU9hdN62/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
             >
               <Facebook size={18} className="text-[#3b5998]" />
-            </a>
+            </Link>
 
             {/* Instagram */}
-            <a
-              href="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg=="
+            <Link to
+              ="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg=="
               target="_blank"
               rel="noopener noreferrer"
               className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
             >
               <Instagram size={18} className="text-[#E1306C]" />
-            </a>
+            </Link>
           </div>
         </div>
 

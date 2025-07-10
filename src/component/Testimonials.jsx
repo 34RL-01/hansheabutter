@@ -78,17 +78,15 @@ const TestimonialCarousel = () => {
         {/* Carousel */}
         <div className="relative overflow-hidden rounded-3xl shadow-lg w-full max-w-full">
           <div
-            className={`transition-opacity duration-700 ease-in-out ${
-              fade ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`transition-opacity duration-700 ease-in-out ${fade ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             <div className={`w-full ${currentReview.bg} text-[#4e2d32]`}>
               <div className="p-6 md:p-10 flex flex-col md:flex-row items-center justify-center">
                 {/* Image Fade */}
                 <div
-                  className={`transition-opacity duration-700 ${
-                    fade ? 'opacity-100' : 'opacity-0'
-                  }`}
+                  className={`transition-opacity duration-700 ${fade ? 'opacity-100' : 'opacity-0'
+                    }`}
                 >
                   <img
                     src={currentReview.image}
@@ -99,9 +97,8 @@ const TestimonialCarousel = () => {
 
                 {/* Text Fade */}
                 <div
-                  className={`transition-opacity duration-700 delay-150 ${
-                    fade ? 'opacity-100' : 'opacity-0'
-                  } text-center md:text-left max-w-xs md:max-w-md`}
+                  className={`transition-opacity duration-700 delay-150 ${fade ? 'opacity-100' : 'opacity-0'
+                    } text-center md:text-left max-w-xs md:max-w-md`}
                 >
                   <h3 className="text-xl font-semibold">{currentReview.title}</h3>
                   <p className="text-sm mt-2 italic">"{currentReview.feedback}"</p>
@@ -112,22 +109,28 @@ const TestimonialCarousel = () => {
           </div>
 
           {/* Arrows */}
-          <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
+          {/* Left Arrow */}
+          <div className="absolute top-1/2 left-2 transform -translate-y-1/2 z-10">
             <button
               onClick={prev}
-              className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
+              className="text-[#046d12] hover:bg-amber-400 p-3 sm:p-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
+              aria-label="Previous Slide"
             >
               &#8592;
             </button>
           </div>
-          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
+
+          {/* Right Arrow */}
+          <div className="absolute top-1/2 right-2 transform -translate-y-1/2 z-10">
             <button
               onClick={next}
-              className="text-[#f2b6a0] bg-white/20 hover:bg-white/30 p-3 rounded-full transition mx-2"
+              className="text-[#046d12] hover:bg-amber-400 p-3 sm:p-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
+              aria-label="Next Slide"
             >
               &#8594;
             </button>
           </div>
+
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import tiktokIcon from '../assets/images/tiktokIcon.png'
 import whatsappIcon from '../assets/images/whatsappIcon.png'
+import { Link, } from "react-router";
 
 
 export default function Footer() {
@@ -22,45 +23,41 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="flex space-x-4">
-              
+
               {/* WhatsApp (PNG) */}
-              <a
-                href="https://wa.me/233540321094"
+              <Link to="https://wa.me/233540321094"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
-              </a>
+              </Link>
 
               {/* TikTok (PNG) */}
-              <a
-                href="https://www.tiktok.com/@hans.shea3"
+              <Link to="https://www.tiktok.com/@hans.shea3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <img src={tiktokIcon} alt="TikTok" className="w-5 h-5" />
-              </a>
+              </Link>
               {/* Facebook */}
-              <a
-                href="https://www.facebook.com/share/1DJU9hdN62/"
+              <Link to="https://www.facebook.com/share/1DJU9hdN62/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <Facebook size={20} />
-              </a>
+              </Link>
 
               {/* Instagram */}
-              <a
-                href="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg=="
+              <Link to="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 hover:bg-amber-600 p-3 rounded-full transition-colors duration-300"
               >
                 <Instagram size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -68,7 +65,8 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-amber-400">Shop</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Pure Shea Butter</a></li>
+              <li><Link
+                to="/#products" className="text-gray-300 hover:text-white transition-colors">Pure Shea Butter</Link></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Infused Blends</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Gift Sets</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Travel Size</a></li>
@@ -80,11 +78,12 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-amber-400">Company</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Story</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Testimonial</a></li>
+              <li><Link
+                to="/#about" className="text-gray-300 hover:text-white transition-colors">Our Story</Link></li>
+              <li><Link to="#" className="text-gray-300 hover:text-white transition-colors">Testimonial</Link></li>
+              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Meet the Team</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Fair Trade</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+              <li><Link to="https://www.facebook.com/share/1DJU9hdN62/" target='_blank' className="text-gray-300 hover:text-white transition-colors">Blog</Link></li>
             </ul>
           </div>
 
@@ -117,9 +116,9 @@ export default function Footer() {
             <div className="mt-6">
               <h4 className="font-semibold mb-2 text-green-400">Support</h4>
               <ul className="space-y-1">
+                <li><Link to= {`/ContactUs`} className="text-gray-300 hover:text-white transition-colors text-sm">Contact Support</Link></li>
                 <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">FAQ</a></li>
                 <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Shipping Info</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">Contact Support</a></li>
               </ul>
             </div>
           </div>
@@ -139,7 +138,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-2 text-sm text-gray-400">
-              <span>Made with</span>
+              <span>Made</span>
               <span>from Ghana</span>
               <span className="text-yellow-400">🇬🇭</span>
             </div>
