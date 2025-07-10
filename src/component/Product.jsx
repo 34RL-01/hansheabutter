@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import hands from '../assets/images/hands.jpeg';
+import pdt1 from '../assets/images/pdt1.jpg';
+import pdt2 from '../assets/images/pdt2.jpg';
 
 const products = [
     {
@@ -22,7 +24,7 @@ const products = [
     },
     {
         id: 3,
-        image: hands,
+        image: pdt1,
         label: 'Lavender Shea Butter',
         title: 'Unrefined, raw shea butter in it raw form',
         rating: 5,
@@ -31,7 +33,7 @@ const products = [
     },
     {
         id: 4,
-        image: hands,
+        image: pdt2,
         label: 'Cocoa Blend Shea Butter',
         title: 'Unrefined, raw shea butter in it raw form',
         rating: 4,

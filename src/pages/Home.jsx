@@ -34,7 +34,7 @@ const Home = () => {
           content="Experience the purity of Hans Organic Shea Butter. 100% handcrafted shea butter from Ghana to nourish and protect your skin naturally."
         />
 
-        Open Graph
+        {/* Open Graph
         <meta property="og:title" content="Hans Organic Shea Butter - Natural Skincare" />
         <meta property="og:description" content="100% handcrafted shea butter from Ghana. Moisturize, nourish, and protect your skin naturally." />
         <meta property="og:image" content="https://hansheabutter.vercel.app/images/hanslogo.jpg" />
@@ -45,7 +45,7 @@ const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hans Organic Shea Butter - Natural Skincare" />
         <meta name="twitter:description" content="Ethically sourced shea butter from Ghana. Loved by skin, trusted by nature." />
-        <meta name="twitter:image" content="https://hansheabutter.vercel.app/images/hanslogo.jpg" />
+        <meta name="twitter:image" content="https://hansheabutter.vercel.app/images/hanslogo.jpg" /> */}
       </Helmet>
 
       <div className="min-h-screen">

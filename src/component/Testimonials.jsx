@@ -3,6 +3,11 @@ import hansheas3 from '../assets/images/hansheas3.jpg';
 import hanshea1 from '../assets/images/hanshea1.jpg';
 import hansheass1 from '../assets/images/hansheass1.jpg';
 import sheahan2 from '../assets/images/sheahan2.jpg';
+import tst1 from '../assets/images/tst1.jpg';
+import tst2 from '../assets/images/tst2.jpg';
+import tst3 from '../assets/images/tst3.jpg';
+import tst4 from '../assets/images/tst4.jpg';
+import tst5 from '../assets/images/tst5.jpg';
 
 const testimonials = [
   {
@@ -29,6 +34,41 @@ const testimonials = [
   },
   {
     image: sheahan2,
+    title: 'Incredible Glow!',
+    name: 'Akosua B.',
+    feedback: 'My skin has never felt smoother. The experience was beyond relaxing.',
+    bg: 'bg-[#fdf4eb]',
+  },
+  {
+    image: tst1,
+    title: 'Incredible Glow!',
+    name: 'Akosua B.',
+    feedback: 'My skin has never felt smoother. The experience was beyond relaxing.',
+    bg: 'bg-[#fdf4eb]',
+  },
+  {
+    image: tst2,
+    title: 'Incredible Glow!',
+    name: 'Akosua B.',
+    feedback: 'My skin has never felt smoother. The experience was beyond relaxing.',
+    bg: 'bg-[#fdf4eb]',
+  },
+  {
+    image: tst3,
+    title: 'Incredible Glow!',
+    name: 'Akosua B.',
+    feedback: 'My skin has never felt smoother. The experience was beyond relaxing.',
+    bg: 'bg-[#fdf4eb]',
+  },
+  {
+    image: tst4,
+    title: 'Incredible Glow!',
+    name: 'Akosua B.',
+    feedback: 'My skin has never felt smoother. The experience was beyond relaxing.',
+    bg: 'bg-[#fdf4eb]',
+  },
+  {
+    image: tst5,
     title: 'Incredible Glow!',
     name: 'Akosua B.',
     feedback: 'My skin has never felt smoother. The experience was beyond relaxing.',
