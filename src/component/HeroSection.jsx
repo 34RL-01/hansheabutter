@@ -5,8 +5,8 @@ import { useSwipeable } from "react-swipeable";
 
 import blackgril2 from "../assets/images/blackgril2.jpeg";
 import face2 from "../assets/images/face2.jpg";
-import face3 from "../assets/images/face3.jpg";
-import face5 from "../assets/images/face5.jpg";
+// import face3 from "../assets/images/face3.jpg";
+// import face5 from "../assets/images/face5.jpg";
 
 // Array of slides with image, title & caption
 const slides = [
@@ -20,16 +20,16 @@ const slides = [
     title: "Glow with Every Drop",
     description: "Rejuvenate dry, dull skin with rich vitamins and deep hydration.",
   },
-  {
-    image: face3,
-    title: "Nature's Perfect Moisturizer",
-    description: "No chemicals. No additives. Just raw, organic goodness.",
-  },
-  {
-    image: face5,
-    title: "Gentle & Powerful",
-    description: "Great for all skin types — even sensitive or irritated skin.",
-  },
+  // {
+  //   image: face3,
+  //   title: "Nature's Perfect Moisturizer",
+  //   description: "No chemicals. No additives. Just raw, organic goodness.",
+  // },
+  // {
+  //   image: face5,
+  //   title: "Gentle & Powerful",
+  //   description: "Great for all skin types — even sensitive or irritated skin.",
+  // },
 ];
 
 export default function HeroSection() {
