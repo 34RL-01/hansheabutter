@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { useSwipeable } from "react-swipeable";
+import { useSwipeable } from "react-swipeable";
 
 import blackgril2 from "../assets/images/blackgril2.jpeg";
 import face2 from "../assets/images/face2.jpg";
@@ -60,11 +60,11 @@ export default function HeroSection() {
     setCurrent((prev) => (prev + 1) % slides.length);
   };
 
-  // const swipeHandlers = useSwipeable({
-  //   onSwipedLeft: handleNext,
-  //   onSwipedRight: handlePrev,
-  //   trackMouse: true,
-  // });
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: handleNext,
+    onSwipedRight: handlePrev,
+    trackMouse: true,
+  });
 
   const currentSlide = slides[current] ?? {
     image: '',
@@ -75,7 +75,7 @@ export default function HeroSection() {
 
   return (
     <section
-      // {...swipeHandlers}
+      {...swipeHandlers}
       className="relative h-screen flex items-center justify-center px-6 text-white overflow-hidden"
     >
       {/* Background Image */}
