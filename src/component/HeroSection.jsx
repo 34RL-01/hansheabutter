@@ -32,7 +32,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative bg-cover bg-center h-screen flex items-center justify-center px-6 text-white transition-all duration-1000"
+      className="relative h-screen flex items-center justify-center px-6 text-white transition-all duration-1000"
       style={{
         backgroundImage: `url(${backgroundImages[current]})`,
         backgroundAttachment: "fixed", // Parallax effect
@@ -41,7 +41,7 @@ export default function HeroSection() {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-brightness-150 z-0"></div>
+      <div className="absolute inset-0 bg-black/40 backdrop-brightness-100 z-0"></div>
 
       {/* Content */}
       <div className="relative z-10 p-8 md:p-12 rounded-2xl text-center mt-20 max-w-2xl mx-auto animate-fade-in-up">
