@@ -2,6 +2,7 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import { lazy, Suspense } from 'react';
 import Layout from './Layout';
+import BrandedLoader from './component/BrandedLoader';
 
 // import Home from './pages/Home'
 // import ContactUs from './pages/Contact'
@@ -18,7 +19,7 @@ const nkoto = createBrowserRouter([
     path: "/",
     element: (
       <Layout>
-        <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
+        <Suspense fallback={<BrandedLoader />}>
           <Home />
         </Suspense>
       </Layout>
@@ -28,7 +29,7 @@ const nkoto = createBrowserRouter([
     path: "/Home",
     element: (
       <Layout>
-        <Suspense fallback={<div className="text-center mt-20">Loading Home...</div>}>
+        <Suspense fallback={<BrandedLoader />}>
           <Home />
         </Suspense>
       </Layout>
@@ -61,7 +62,7 @@ const nkoto = createBrowserRouter([
   {
     path: "/ContactUs",
     element: (
-      <Suspense fallback={<div className="text-center mt-20">Loading Contact Page...</div>}>
+      <Suspense fallback={<BrandedLoader />}>
         <ContactUs />
       </Suspense>
     )
