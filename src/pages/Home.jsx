@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+
 import { useLocation } from "react-router";
 
 import HeroSection from "../component/HeroSection";
@@ -27,7 +27,7 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Hans Organic Shea Butter - Natural Skincare</title>
         <meta
           name="description"
@@ -50,7 +50,7 @@ const Home = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Hans Organic Shea Butter" />
-      </Helmet>
+      </Helmet> */}
 
       <div className="min-h-screen">
         <Navbar />

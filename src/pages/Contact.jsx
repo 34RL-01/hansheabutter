@@ -6,18 +6,18 @@ import whatsappIcon from '../assets/images/whatsappIcon.png';
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import { Link } from 'react-router';
-import { Helmet } from 'react-helmet-async';
+
 
 const ContactUs = () => {
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>Contact Hans Organic Shea Butter</title>
         <meta
           name="description"
           content="Get in touch with Hans Organic Shea Butter for product inquiries, wholesale, or feedback. We’d love to hear from you!"
         />
-      </Helmet>
+      </Helmet> */}
 
       <Navbar />
       <section
