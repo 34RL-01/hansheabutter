@@ -1,5 +1,5 @@
 import { Droplets, Leaf, Heart, Shield, Sparkles, Sun } from 'lucide-react';
-import { Link } from 'react-router';
+import React from 'react';
 
 export default function Benefits() {
     const benefits = [
@@ -73,25 +73,6 @@ export default function Benefits() {
                             <div className="mt-6 h-1 w-12 bg-gradient-to-r from-amber-400 to-green-400 rounded-full group-hover:w-20 transition-all duration-300"></div>
                         </div>
                     ))}
-                </div>
-
-                {/* CTA */}
-                <div className="mt-16 text-center">
-                    <div className="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                            Ready to Experience the Difference?
-                        </h3>
-                        <p className="text-gray-600 mb-6">
-                            Join thousands of satisfied customers who have made the switch to natural,
-                            ethically-sourced skin care.
-                        </p>
-                        <Link
-                            to={`/ContactUs`}
-                            className="inline-block bg-gradient-to-r from-amber-600 to-green-600 hover:from-amber-700 hover:to-green-700 text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-                        >
-                            Contact Us
-                        </Link>
-                    </div>
                 </div>
             </div>
         </section>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import hansheas3 from '../assets/images/hansheas3.jpg';
 import hanshea1 from '../assets/images/hanshea1.jpg';
 import hansheass1 from '../assets/images/hansheass1.jpg';
@@ -171,6 +172,35 @@ const TestimonialCarousel = () => {
             </button>
           </div>
 
+        </div>
+      </div>
+      <div className="mt-8 flex justify-center space-x-2">
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`w-3 h-3 rounded-full ${current === index ? 'bg-green-600' : 'bg-gray-300'
+              } transition-colors duration-300`}
+            aria-label={`Go to slide ${index + 1}`}
+          ></button>
+        ))}
+      </div>
+      {/* CTA */}
+      <div className="mt-16 text-center mx-auto">
+        <div className="bg-gradient-to-r from-green-100 to-amber-50 shadow-lg p-8 ">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">
+            Ready to Experience the Difference?
+          </h3>
+          <p className="text-gray-600 mb-6">
+            Join thousands of satisfied customers who have made the switch to natural,
+            ethically-sourced skin care.
+          </p>
+          <Link
+            to={`/ContactUs`}
+            className="inline-block bg-gradient-to-r from-amber-600 to-green-600 hover:from-amber-700 hover:to-green-700 text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105"
+          >
+            Contact Us
+          </Link>
         </div>
       </div>
     </section>
