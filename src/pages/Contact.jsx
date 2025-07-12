@@ -11,14 +11,6 @@ import { Link } from 'react-router';
 const ContactUs = () => {
   return (
     <>
-      {/* <Helmet>
-        <title>Contact Hans Organic Shea Butter</title>
-        <meta
-          name="description"
-          content="Get in touch with Hans Organic Shea Butter for product inquiries, wholesale, or feedback. We’d love to hear from you!"
-        />
-      </Helmet> */}
-
       <Navbar />
       <section
         className="py-20 bg-gradient-to-b from-green-50 to-amber-50"

@@ -27,31 +27,6 @@ const Home = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <title>Hans Organic Shea Butter - Natural Skincare</title>
-        <meta
-          name="description"
-          content="Experience the purity of Hans Organic Shea Butter. 100% handcrafted shea butter from Ghana to nourish and protect your skin naturally."
-        />
-        <meta
-          name="keywords"
-          content="shea butter, organic skincare, natural moisturizer, Ghanaian shea butter, handcrafted skincare"
-        />
-        <meta name="author" content="Hans Organic Shea Butter" />
-        <link rel="canonical" href="https://hanssheabutter.com" />
-        <meta property="og:title" content="Hans Organic Shea Butter" />
-        <meta
-          property="og:description"
-          content="Discover the benefits of Hans Organic Shea Butter for your skin. Pure, natural, and ethically sourced."
-        />
-        <meta property="og:image" content="https://hanssheabutter.com/images/hero.jpg" />
-        <meta property="og:url" content="https://hanssheabutter.com"
-        />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hans Organic Shea Butter" />
-      </Helmet> */}
-
       <div className="min-h-screen">
         <Navbar />
         <HeroSection />
