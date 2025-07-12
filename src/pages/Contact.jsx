@@ -6,7 +6,7 @@ import whatsappIcon from '../assets/images/whatsappIcon.png';
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import { Link } from 'react-router';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const ContactUs = () => {
   return (

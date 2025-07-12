@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router";
 
 import HeroSection from "../component/HeroSection";
@@ -33,19 +33,23 @@ const Home = () => {
           name="description"
           content="Experience the purity of Hans Organic Shea Butter. 100% handcrafted shea butter from Ghana to nourish and protect your skin naturally."
         />
-
-        {/* Open Graph
-        <meta property="og:title" content="Hans Organic Shea Butter - Natural Skincare" />
-        <meta property="og:description" content="100% handcrafted shea butter from Ghana. Moisturize, nourish, and protect your skin naturally." />
-        <meta property="og:image" content="https://hansheabutter.vercel.app/images/hanslogo.jpg" />
-        <meta property="og:url" content="https://hansheabutter.vercel.app/" />
+        <meta
+          name="keywords"
+          content="shea butter, organic skincare, natural moisturizer, Ghanaian shea butter, handcrafted skincare"
+        />
+        <meta name="author" content="Hans Organic Shea Butter" />
+        <link rel="canonical" href="https://hanssheabutter.com" />
+        <meta property="og:title" content="Hans Organic Shea Butter" />
+        <meta
+          property="og:description"
+          content="Discover the benefits of Hans Organic Shea Butter for your skin. Pure, natural, and ethically sourced."
+        />
+        <meta property="og:image" content="https://hanssheabutter.com/images/hero.jpg" />
+        <meta property="og:url" content="https://hanssheabutter.com"
+        />
         <meta property="og:type" content="website" />
-
-        Twitter Card
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hans Organic Shea Butter - Natural Skincare" />
-        <meta name="twitter:description" content="Ethically sourced shea butter from Ghana. Loved by skin, trusted by nature." />
-        <meta name="twitter:image" content="https://hansheabutter.vercel.app/images/hanslogo.jpg" /> */}
+        <meta name="twitter:title" content="Hans Organic Shea Butter" />
       </Helmet>
 
       <div className="min-h-screen">

@@ -37,14 +37,12 @@ export default function HeroSection() {
 
   // Set screen size
   useEffect(() => {
-    const updateScreen = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-
+    const updateScreen = () => setIsMobile(window.innerWidth < 768);
     updateScreen();
     window.addEventListener("resize", updateScreen);
     return () => window.removeEventListener("resize", updateScreen);
   }, []);
+
 
   // Auto-slide
   useEffect(() => {
@@ -68,7 +66,12 @@ export default function HeroSection() {
   //   trackMouse: true,
   // });
 
-  const currentSlide = slides[current];
+  const currentSlide = slides[current] ?? {
+    image: '',
+    title: '',
+    description: '',
+  };
+
 
   return (
     <section

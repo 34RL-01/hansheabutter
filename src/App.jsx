@@ -2,6 +2,7 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import { lazy, Suspense } from 'react';
 import Layout from './Layout';
+import { HelmetProvider } from 'react-helmet-async';
 // import Home from './pages/Home'
 // import ContactUs from './pages/Contact'
 
@@ -72,7 +73,9 @@ const nkoto = createBrowserRouter([
 const App = () => {
   return (
     <div>
-      <RouterProvider router={nkoto} />
+      <HelmetProvider>
+        <RouterProvider router={nkoto} />
+      </HelmetProvider>
     </div>
   )
 }
