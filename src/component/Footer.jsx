@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin, Heart } from 'lucide-react';
 import tiktokIcon from '../assets/images/tiktokIcon.png'
 import whatsappIcon from '../assets/images/whatsappIcon.png'
 import { Link, } from "react-router";

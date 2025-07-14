@@ -7,7 +7,63 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 👇 Custom Utilities and Animations */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f5ee; /* light shea butter tone */
+  color: #333; /* dark text for readability */
+  margin: 0;
+  padding: 0;
+}
+@layer components {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .btn {
+    @apply inline-block bg-amber-600 text-white px-6 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply inline-block bg-green-600 text-white px-6 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105;
+  }
+}
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: #836953; /* warm brown */
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    color: #555; /* medium gray for text */
+  }
+
+  a {
+    color: #836953; /* warm brown */
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@layer forms {
+  .form-input {
+    @apply border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-amber-500;
+  }
+
+  .form-textarea {
+    @apply border border-gray-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-amber-500;
+  }
+
+  .form-button {
+    @apply bg-green-600 text-white px-6 py-3 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105;
+  }
+}
+
 @layer utilities {
   .animate-fade-in-up {
     opacity: 0;

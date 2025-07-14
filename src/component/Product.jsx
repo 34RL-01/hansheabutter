@@ -10,7 +10,7 @@ const products = [
         label: 'Pure Shea Butter',
         title: 'Unrefined, raw shea butter in it raw form',
         rating: 5,
-        price: 'GHS 550.00',
+        price: 'GHS 30.00',
         description: 'Perfect for on-the-go skin care.',
     },
     {
@@ -19,7 +19,7 @@ const products = [
         label: 'Pure Shea Butter',
         title: 'Unrefined, raw shea butter in it raw form',
         rating: 5,
-        price: 'GHS 550.00',
+        price: 'GHS 30.00',
         description: 'This box includes luxurious skincare products and pampering items just for her.',
     },
     {
@@ -28,7 +28,7 @@ const products = [
         label: 'Lavender Shea Butter',
         title: 'Unrefined, raw shea butter in it raw form',
         rating: 5,
-        price: 'GHS 200.00',
+        price: 'GHS 30.00',
         description: 'Infused with organic lavender for relaxation.',
     },
     {
@@ -37,7 +37,7 @@ const products = [
         label: 'Cocoa Blend Shea Butter',
         title: 'Unrefined, raw shea butter in it raw form',
         rating: 4,
-        price: 'GHS 400.00',
+        price: 'GHS 30.00',
         description: 'Rich blend of shea and cocoa butter.',
     },
 ];
@@ -63,11 +63,11 @@ export default function Product() {
                 </div>
 
                 {/* Horizontal Scroll Wrapper */}
-                <div className="flex space-x-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-1 md:grid md:grid-cols-4 md:space-x-0">
+                <div className="flex space-x-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-1 md:grid md:grid-cols-4 md:space-x-0 ">
                     {products.map((product) => (
                         <div
                             key={product.id}
-                            className="flex flex-col items-center flex-shrink-0 w-64 snap-start mx-auto md:w-auto transition transform hover:scale-105 hover:shadow-lg cursor-pointer"
+                            className="mb-3 flex flex-col items-center flex-shrink-0 w-64 snap-start mx-auto md:w-auto transition transform hover:scale-105 hover:shadow-lg cursor-pointer"
                         >
                             <div className="w-60 h-60 rounded-full overflow-hidden shadow-lg transition-transform duration-300 ease-in-out">
                                 <img

@@ -3,7 +3,7 @@ import { Facebook, Instagram, MapPin, Mail, Clock } from 'lucide-react';
 import face5 from '../assets/images/face5.jpg';
 import tiktokIcon from '../assets/images/tiktokIcon.png';
 import whatsappIcon from '../assets/images/whatsappIcon.png';
-import Navbar from "../component/Navbar";
+import ContactNavbar from '../component/ContactNavbar';
 import Footer from "../component/Footer";
 import { Link } from 'react-router';
 
@@ -11,7 +11,7 @@ import { Link } from 'react-router';
 const ContactUs = () => {
   return (
     <>
-      <Navbar />
+      <ContactNavbar />
       <section
         className="py-20 bg-gradient-to-b from-green-50 to-amber-50"
       >
@@ -103,7 +103,7 @@ const ContactUs = () => {
           <div>
             <form className="space-y-5">
               <div>
-                <label htmlFor="name" className="block font-medium mb-1">full name *</label>
+                <label htmlFor="name" className="block font-medium mb-1">Full Name</label>
                 <input
                   type="text"
                   id="name"
@@ -113,7 +113,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block font-medium mb-1">email *</label>
+                <label htmlFor="email" className="block font-medium mb-1">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -123,7 +123,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block font-medium mb-1">subject *</label>
+                <label htmlFor="subject" className="block font-medium mb-1">Subject</label>
                 <input
                   type="text"
                   id="subject"
@@ -133,7 +133,7 @@ const ContactUs = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block font-medium mb-1">message *</label>
+                <label htmlFor="message" className="block font-medium mb-1">Message</label>
                 <textarea
                   id="message"
                   rows="5"
@@ -146,26 +146,25 @@ const ContactUs = () => {
                 type="submit"
                 className="w-full bg-black text-white py-3 rounded-md uppercase tracking-wider font-semibold"
               >
-                submit
+                Submit
               </button>
             </form>
           </div>
         </div>
-
-        {/* Map Section */}
-        <div className="relative z-10 mt-16 max-w-4xl mx-auto">
+      </section>
+       {/* Map Section */}
+        <div className="relative z-10 mt-16 max-w-full mx-auto">
           <h3 className="text-xl font-bold text-green-800 mb-4 text-center">Find Us on the Map</h3>
-          <div className="rounded-xl overflow-hidden shadow-lg border-4 border-amber-100">
+          <div className=" overflow-hidden shadow-lg border-2 border-amber-100">
             <iframe
               title="Hans Organic Shea Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.4388650904716!2d-0.19690068405911106!3d5.614818595941655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9c2b5b0a9cf3%3A0xe20c8ef9b4d97cf6!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1628774982443"
               allowFullScreen=""
               loading="lazy"
-              className="w-full h-[300px]"
+              className="w-full h-[350px]"
             ></iframe>
           </div>
         </div>
-      </section>
       <Footer />
     </>
   );
