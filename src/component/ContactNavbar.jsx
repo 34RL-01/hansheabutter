@@ -64,11 +64,6 @@ export default function Navbar() {
 
           {/* Contact + Mobile Toggle */}
           <div className="flex items-center md:gap-4 gap-2">
-            {/* <Link to={`/ContactUs`}
-              className="hidden md:inline-block bg-amber-700 text-white px-4 py-1.5 rounded-full hover:bg-amber-600 transition"
-            >
-              Contact Us
-            </Link> */}
             <button
               className="md:hidden text-gray-800"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -109,12 +104,6 @@ export default function Navbar() {
             >
               Benefits
             </Link>
-            {/* <Link
-              to="/ContactUs"
-              className="text-lime-600 font-medium px-4 py-2 rounded-full hover:bg-lime-200 hover:text-amber-700 transition-all duration-300"
-            >
-              Contact
-            </Link> */}
           </nav>
         </div>
 

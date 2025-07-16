@@ -26,7 +26,7 @@ const nkoto = createBrowserRouter([
     )
   },
   {
-    path: "/Home",
+    path: "/home",
     element: (
       <Layout>
         <Suspense fallback={<BrandedLoader />}>
@@ -60,13 +60,14 @@ const nkoto = createBrowserRouter([
   //   ),
   // },
   {
-    path: "/ContactUs",
+    path: "/contact-us",
     element: (
       <Suspense fallback={<BrandedLoader />}>
         <ContactUs />
       </Suspense>
     )
-  },
+  }
+
 
 
 ])
@@ -74,7 +75,7 @@ const nkoto = createBrowserRouter([
 const App = () => {
   return (
     <div>
-        <RouterProvider router={nkoto} />
+      <RouterProvider router={nkoto} />
     </div>
   )
 }
