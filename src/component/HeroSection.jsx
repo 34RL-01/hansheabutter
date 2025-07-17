@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
 
@@ -8,7 +7,6 @@ import face2 from "../assets/images/face2.jpg";
 import face3 from "../assets/images/face3.jpg";
 import face5 from "../assets/images/face5.jpg";
 
-// Array of slides with image, title & caption
 const slides = [
   {
     image: blackgril2,
@@ -34,22 +32,32 @@ const slides = [
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef(null);
 
-  // Auto-slide every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
+  const handlePrev = useCallback(() => {
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   }, []);
 
-  const handlePrev = () => {
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
-  };
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handlePrev, handleNext]);
+
+  useEffect(() => {
+    if (!isPaused) {
+      intervalRef.current = setInterval(() => setCurrent((prev) => (prev + 1) % slides.length), 5000);
+    }
+    return () => clearInterval(intervalRef.current);
+  }, [isPaused]);
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: handleNext,
@@ -62,9 +70,11 @@ export default function HeroSection() {
   return (
     <section
       {...swipeHandlers}
-      className="relative h-screen flex items-center justify-center px-6 text-white overflow-hidden"
+      className="relative h-screen flex items-center justify-center px-6 text-white overflow-hidden group"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background with fade & parallax */}
+      {/* Background */}
       <AnimatePresence>
         <motion.div
           key={current}
@@ -126,19 +136,45 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Navigation Arrows */}
-      {/* <button
-        onClick={handlePrev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-white bg-black/40 hover:bg-black/60 p-2 rounded-full"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        onClick={handleNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 text-white bg-black/40 hover:bg-black/60 p-2 rounded-full"
-      >
-        <ChevronRight size={24} />
-      </button> */}
+      {/* Slide Indicators */}
+      <div className="absolute bottom-10 flex justify-center w-full z-10 space-x-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`h-3 w-3 rounded-full transition-all ${
+              current === index ? "bg-amber-500 scale-125" : "bg-white/40"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Animated Prev/Next Buttons */}
+      <div className="absolute inset-y-0 flex justify-between w-full px-4 z-10 pointer-events-none">
+        <motion.button
+          onClick={handlePrev}
+          aria-label="Previous Slide"
+          className="pointer-events-auto text-white/50 hover:text-white transition"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -50, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          ‹
+        </motion.button>
+        <motion.button
+          onClick={handleNext}
+          aria-label="Next Slide"
+          className="pointer-events-auto text-white/50 hover:text-white transition"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: 50, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          ›
+        </motion.button>
+      </div>
     </section>
   );
 }

@@ -35,7 +35,6 @@ export default function Benefits() {
         },
     ];
 
-    // Variants for more structured, scalable animations
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
         show: {
@@ -57,54 +56,70 @@ export default function Benefits() {
     return (
         <motion.section
             id="benefits"
-            initial="hidden"
-            whileInView="show"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            variants={containerVariants}
+            transition={{ duration: 0.8 }}
             className="py-20 bg-gradient-to-b from-green-50 to-amber-200 text-gray-800"
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Heading */}
                 <div className="text-center mb-16">
                     <motion.span
-                        variants={cardVariants}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
                         className="text-green-600 font-semibold text-lg"
                     >
                         Why Choose Us
                     </motion.span>
                     <motion.h2
-                        variants={cardVariants}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
                         className="text-4xl md:text-5xl font-bold text-gray-800 mt-3 mb-5"
                     >
                         Nature&apos;s Gift to{' '}
                         <span className="text-amber-600 block">Your Skin</span>
                     </motion.h2>
                     <motion.p
-                        variants={cardVariants}
-                        className="text-lg text-gray-600 max-w-3xl mx-auto"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                        className="text-base text-gray-600 max-w-3xl mx-auto"
                     >
                         Discover the incredible benefits of pure organic shea butter and why it’s been trusted for centuries as nature’s ultimate skin care solution.
                     </motion.p>
                 </div>
 
-                {/* Benefit Cards with Stagger Animation */}
+                {/* Benefit Cards */}
                 <motion.div
                     variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
                     className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
                 >
                     {benefits.map((benefit, index) => (
                         <motion.div
                             key={index}
                             variants={cardVariants}
-                            className="group bg-white p-8 "
+                            whileHover={{ scale: 1.03 }}
+                            transition={{ type: 'spring', stiffness: 200 }}
+                            className="group bg-white p-8 shadow rounded-lg"
                         >
-                            <h3 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-amber-700 transition-colors">
+                            <h3 className="text-xl font-semibold leading-tight text-gray-800 mb-3 group-hover:text-amber-700 transition-colors">
                                 {benefit.title}
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-base text-gray-600 leading-relaxed">
                                 {benefit.description}
                             </p>
-                            <div className="mt-6 h-1 w-12 bg-gradient-to-r from-amber-400 to-green-400 rounded-full group-hover:w-20 transition-all duration-300"></div>
+                            <motion.div
+                                initial={{ width: 48 }}
+                                whileHover={{ width: 80 }}
+                                transition={{ duration: 0.3 }}
+                                className="mt-6 h-1 bg-gradient-to-r from-amber-400 to-green-400 rounded-full"
+                            />
                         </motion.div>
                     ))}
                 </motion.div>

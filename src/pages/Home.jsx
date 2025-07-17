@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-
+import { useEffect } from "react";
 import { useLocation } from "react-router";
 
 import HeroSection from "../component/HeroSection";
@@ -18,25 +17,23 @@ const Home = () => {
       const id = location.hash.replace("#", "");
       const el = document.getElementById(id);
       if (el) {
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           el.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        });
       }
     }
   }, [location]);
 
   return (
-    <>
-      <div className="min-h-screen">
-        <Navbar />
-        <HeroSection />
-        <About />
-        <Product />
-        <Benefits />
-        <Testimonials />
-        <Footer />
-      </div>
-    </>
+    <div className="min-h-screen">
+      <Navbar />
+      <HeroSection />
+      <About />
+      <Product />
+      <Benefits />
+      <Testimonials />
+      <Footer />
+    </div>
   );
 };
 
