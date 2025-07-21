@@ -12,7 +12,7 @@ const benefits = [
     { title: 'Empowerment & Fairness', description: 'Most Ghana shea brands work closely with local women’s cooperatives, ensuring fair trade and sustainable livelihoods.' },
 ];
 
-export default function WhyChooseUs() {
+export default function Benefits() {
     const handleScroll = (e) => {
         e.preventDefault();
         const targetId = e.currentTarget.getAttribute('href').replace('#', '');
