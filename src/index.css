@@ -128,3 +128,15 @@ body {
   font-weight: 500;
   text-align: center;
 }
+
+
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
