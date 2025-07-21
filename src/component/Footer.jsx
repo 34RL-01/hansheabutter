@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin, Linkedin, LinkedinIcon } from 'lucide-react';
 import tiktokIcon from '../assets/images/tiktokIcon.png';
 import whatsappIcon from '../assets/images/whatsappIcon.png';
 import { Link } from 'react-router';
@@ -58,6 +58,15 @@ export default function Footer() {
             >
               <Instagram size={18} />
             </a>
+            <a
+              href="https://www.linkedin.com/in/hannahboateng"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="bg-gray-800 hover:bg-amber-600 p-2.5 rounded-full transition hover:scale-110"
+            >
+              <LinkedinIcon size={18} />
+            </a>
           </div>
         </div>
 
@@ -91,6 +100,9 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Phone size={18} className="text-amber-400" /> +233 54 032 1094
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone size={18} className="text-amber-400" /> +233 59 202 7947
             </li>
             <li className="flex items-center gap-2">
               <Phone size={18} className="text-amber-400" /> +39 328 342 3747

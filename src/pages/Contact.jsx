@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, MapPin, Mail, Clock } from 'lucide-react';
+import { Facebook, Instagram, LinkedinIcon, MapPin, Mail, Clock } from 'lucide-react';
 import tiktokIcon from '../assets/images/tiktokIcon.png';
 import whatsappIcon from '../assets/images/whatsappIcon.png';
 import ContactNavbar from '../component/ContactNavbar';
@@ -91,6 +91,15 @@ export default function ContactUs() {
               >
                 <Instagram size={18} className="text-[#E1306C]" />
               </a>
+              <a
+              href="https://www.linkedin.com/in/hannahboateng"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
+            >
+              <LinkedinIcon size={18} className='text-black' />
+            </a>
             </div>
           </div>
 

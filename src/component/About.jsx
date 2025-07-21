@@ -44,20 +44,19 @@ export default function About() {
             </div>
 
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Hans Organic Shea Butter Cosmetics is a proudly Ghanaian brand dedicated to producing unrefined,
-              organic shea butter and a full line of handcrafted skincare products. Our offerings include raw
-              shea butter, body creams, soaps, and shampoos—each carefully sourced and produced to maintain the
-              natural healing properties of shea.
+              Hans Organic is a proudly Ghanaian-owned natural beauty and wellness company committed to producing 100% organic, eco-friendly, and ethically sourced skincare products, with a primary focus on raw unrefined shea butter. We believe in the power of African indigenous ingredients and traditional knowledge, offering pure and effective natural products that nourish the skin, hair, and soul.
+              Founded on principles of sustainability, community empowerment, and health-conscious living, Hans Organic sources its shea butter directly from women’s cooperatives in Northern Ghana, ensuring fair trade practices and promoting rural economic development.
             </p>
 
-            <span className="text-green-500 font-semibold text-lg">Purpose & Sourcing</span>
+            <span className="text-green-500 font-semibold text-lg">Our Mission</span>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              We believe nature provides the purest solutions for skincare. That’s why our shea butter is Grade A,
-              unrefined, and ethically sourced from women’s cooperatives in Northern Ghana. Rich in natural vitamins
-              A, E, and F, our products retain their creamy texture and healing potency—making them ideal for both
-              personal use and commercial wholesale.
-              Whether it’s a soothing body cream or raw butter for processing, we guarantee premium quality,
-              sustainability, and deep respect for the communities we work with.
+              <span className="font-semibold">Mission:</span>
+              "To deliver pure, organic shea butter sourced directly from Ghanaian women’s cooperatives—uplifting communities while providing natural, nourishing products for skin and hair."
+            </p>
+            <span className="text-green-500 font-semibold text-lg">Our Vision</span>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <span className="font-semibold">Vision:</span>
+              "To become a trusted global brand rooted in Ghana's shea traditions—a catalyst for economic empowerment, sustainability, and organic body care excellence."
             </p>
 
             {/* Features */}
