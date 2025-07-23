@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { X } from "lucide-react";
 import { motion, AnimatePresence } from 'framer-motion';
 import hands from '../assets/images/hands.jpeg';
 import pdt1 from '../assets/images/pdt1.jpg';
@@ -121,11 +122,13 @@ export default function Product() {
                         >
                             <button
                                 onClick={closeModal}
-                                className="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl"
+                                className="absolute -top-4 -right-4 bg-white border border-gray-200 text-gray-700 hover:bg-red-500 hover:text-white shadow-md rounded-full w-10 h-10 flex items-center justify-center transition z-50"
                                 aria-label="Close"
                             >
-                                &times;
+                                <X size={22} strokeWidth={2.5} />
                             </button>
+
+
                             <img
                                 src={selectedProduct.image}
                                 alt={selectedProduct.title}

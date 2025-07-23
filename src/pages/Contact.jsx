@@ -1,46 +1,72 @@
-import React from 'react';
-import { Facebook, Instagram, LinkedinIcon, MapPin, Mail, Clock } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Mail, Clock } from 'lucide-react';
+// import { Helmet } from 'react-helmet';
 import tiktokIcon from '../assets/images/tiktokIcon.png';
 import whatsappIcon from '../assets/images/whatsappIcon.png';
+import facebook from '../assets/images/facebook.png';
+import instagram from '../assets/images/instagram.png';
+import linkedin from '../assets/images/linkedin.png';
 import ContactNavbar from '../component/ContactNavbar';
-import Footer from "../component/Footer";
+import Footer from '../component/Footer';
 
 export default function ContactUs() {
-  const handleSubmit = (e) => {
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Form submitted!');
-    // Optional: Add real form submission logic here
+    const form = e.target;
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xpwlpovj', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        form.reset();
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+    }
   };
 
   return (
     <>
+      {/* <Helmet>
+        <title>Contact Us | Hans Organic Shea Butter</title>
+        <meta
+          name="description"
+          content="Get in touch with Hans Organic Shea Butter for product questions, partnerships, or general info. Located in Accra, Ghana."
+        />
+      </Helmet> */}
+
       <ContactNavbar />
 
       <section className="py-20 bg-gradient-to-b from-green-50 to-amber-50">
-        <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 pt-5">
+        <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 pt-5 px-4 sm:px-6">
           {/* Contact Info */}
           <div className="pt-20">
-            <h2 className="text-4xl font-semibold mb-2 text-[#4e2d32] italic">hi, you!</h2>
+            <h2 className="text-4xl font-semibold mb-2 text-[#3a1f21] italic">hi, you!</h2>
             <h3 className="text-2xl font-bold mb-6 text-yellow-700">get in touch</h3>
-
             <p className="mb-4 italic">
               We'd love to hear from you! Whether it's product questions, service requests, or partnerships.
-              <a href="mailto:hansshea3@gmail.com" className="text-amber-600 font-medium ml-1">
-                hansshea3@gmail.com
-              </a>
             </p>
 
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
-                <MapPin size={18} className="mt-1 text-amber-600" />
+                <MapPin size={18} className="mt-2 text-amber-600" />
                 <span className="text-[#4e2d32] font-medium">
-                  GS-0155-3255, Pokuase, Accra (Retail Store)
+                  GC-128-9356,<br />Pokuase, Accra (Retail Store), Ghana.
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <Clock size={18} className="mt-1 text-amber-600" />
+                <Clock size={18} className="mt-2 text-amber-600" />
                 <span className="text-[#4e2d32] font-medium">
-                  Office Hours: Mon – Fri : 10am – 6pm
+                  Office Hours<br />Mon – Fri : 10am – 6pm
                 </span>
               </li>
               <li className="flex items-start gap-2">
@@ -55,112 +81,99 @@ export default function ContactUs() {
             </ul>
 
             <div className="flex gap-3 mt-6">
-              <a
-                href="https://wa.me/233540321094"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
-              >
-                <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@hans.shea3"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok"
-                className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
-              >
-                <img src={tiktokIcon} alt="TikTok" className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.facebook.com/share/1DJU9hdN62/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
-              >
-                <Facebook size={18} className="text-[#3b5998]" />
-              </a>
-              <a
-                href="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg=="
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
-              >
-                <Instagram size={18} className="text-[#E1306C]" />
-              </a>
-              <a
-              href="https://www.linkedin.com/in/hannahboateng"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="hover:bg-amber-600 p-2 rounded-full bg-white shadow"
-            >
-              <LinkedinIcon size={18} className='text-black' />
-            </a>
+              {[{
+                href: "https://wa.me/233540321094", icon: whatsappIcon, label: "WhatsApp"
+              }, {
+                href: "https://www.facebook.com/share/1DJU9hdN62/", icon: facebook, label: "Facebook"
+              }, {
+                href: "https://www.tiktok.com/@hans.shea3", icon: tiktokIcon, label: "TikTok"
+              }, {
+                href: "https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg==", icon: instagram, label: "Instagram"
+              }, {
+                href: "https://www.linkedin.com/in/hannahboateng", icon: linkedin, label: "LinkedIn"
+              }].map(({ href, icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-500 p-2 rounded-full bg-white shadow transition"
+                >
+                  <img src={icon} alt={`Visit us on ${label}`} className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Contact Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block font-medium mb-1">Full Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Your name"
-                  className="w-full bg-[#f3f2ee] p-3 rounded-md"
-                  required
-                />
+            {success ? (
+              <div className="p-6 bg-green-100 text-green-800 rounded shadow-md">
+                Thank you! Your message has been sent successfully.
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label htmlFor="name" className="block font-medium mb-1">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    className="w-full bg-[#f3f2ee] p-3 rounded-md"
+                    required
+                  />
+                </div>
 
-              <div>
-                <label htmlFor="email" className="block font-medium mb-1">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="you@example.com"
-                  className="w-full bg-[#f3f2ee] p-3 rounded-md"
-                  required
-                />
-              </div>
+                <div>
+                  <label htmlFor="email" className="block font-medium mb-1">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    className="w-full bg-[#f3f2ee] p-3 rounded-md"
+                    required
+                  />
+                </div>
 
-              <div>
-                <label htmlFor="subject" className="block font-medium mb-1">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  placeholder="Subject"
-                  className="w-full bg-[#f3f2ee] p-3 rounded-md"
-                />
-              </div>
+                <div>
+                  <label htmlFor="subject" className="block font-medium mb-1">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Subject"
+                    className="w-full bg-[#f3f2ee] p-3 rounded-md"
+                  />
+                </div>
 
-              <div>
-                <label htmlFor="message" className="block font-medium mb-1">Message</label>
-                <textarea
-                  id="message"
-                  rows="5"
-                  placeholder="Type your message..."
-                  className="w-full bg-[#f3f2ee] p-3 rounded-md"
-                  required
-                ></textarea>
-              </div>
+                <div>
+                  <label htmlFor="message" className="block font-medium mb-1">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Type your message..."
+                    className="w-full bg-[#f3f2ee] p-3 rounded-md"
+                    required
+                  ></textarea>
+                </div>
 
-              <button
-                type="submit"
-                className="w-full bg-black text-white py-3 rounded-md uppercase tracking-wider font-semibold"
-              >
-                Submit
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-green-600 to-amber-500 hover:from-green-700 hover:to-amber-600 text-white py-3 px-6 rounded-md uppercase tracking-wider font-semibold shadow-md transition-all duration-300"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
 
-      <div className="relative z-10 mt-16 max-w-full mx-auto">
+      <div className="relative z-10 mt-16 max-w-full mx-auto px-4 sm:px-6">
         <h3 className="text-xl font-bold text-green-800 mb-4 text-center">Find Us on the Map</h3>
         <div className="overflow-hidden shadow-lg border-2 border-amber-100">
           <iframe

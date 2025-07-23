@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
-
 import hansheas3 from '../assets/images/hansheas3.jpg';
 import hanshea1 from '../assets/images/hanshea1.jpg';
 import hansheass1 from '../assets/images/hansheass1.jpg';
@@ -39,7 +39,7 @@ export default function TestimonialCarousel() {
   const currentReview = testimonials[current];
 
   return (
-    <section className="bg-gradient-to-b from-amber-100 to-green-100 text-white py-16 px-4 md:px-12">
+    <section className=" bg-gradient-to-b from-green-50 to-amber-100 text-white py-16 px-4 md:px-12">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-semibold text-green-800 mb-4">What Our Clients Say</h2>
         <p className="text-amber-700 mb-8 max-w-xl mx-auto">
@@ -73,9 +73,25 @@ export default function TestimonialCarousel() {
               </div>
             </motion.div>
           </AnimatePresence>
+          {/* Navigation Arrows */}
+          <button
+            onClick={prev}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white text-green-800 rounded-full p-2 shadow-md hover:bg-green-100 transition-all duration-300"
+            aria-label="Previous Testimonial"
+          >
+            <ChevronLeft size={30} />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white text-green-800 rounded-full p-2 shadow-md hover:bg-green-100 transition-all duration-300"
+            aria-label="Next Testimonial"
+          >
+            <ChevronRight size={30} />
+          </button>
+
 
           {/* Arrows */}
-          <button
+          {/* <button
             onClick={prev}
             aria-label="Previous Slide"
             className="absolute top-1/2 left-4 -translate-y-1/2 w-12 h-12 bg-white text-[#046d12] rounded-full shadow-md focus:outline-none focus:ring focus:ring-amber-400"
@@ -88,7 +104,7 @@ export default function TestimonialCarousel() {
             className="absolute top-1/2 right-4 -translate-y-1/2 w-12 h-12 bg-white text-[#046d12] rounded-full shadow-md focus:outline-none focus:ring focus:ring-amber-400"
           >
             ›
-          </button>
+          </button> */}
         </div>
 
         {/* Dots */}
@@ -106,7 +122,7 @@ export default function TestimonialCarousel() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-green-100 to-amber-50 shadow-lg p-8 rounded-2xl">
+          <div className="bg-gradient-to-r from-green-200 to-green-100 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
               Ready to Experience the Difference?
             </h3>

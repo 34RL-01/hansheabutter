@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router";
 import HansLogo from "../assets/images/HansLogo.jpeg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 
 const NAV_LINKS = [
   { name: "Home", to: "/home" },
@@ -11,40 +11,65 @@ const NAV_LINKS = [
   { name: "Benefits", to: "/#benefits" },
 ];
 
-const NavLink = ({ to, children, className = "" }) => (
-  <Link
-    to={to}
-    className={`text-amber-600 font-medium px-4 py-2 rounded-full hover:bg-amber-600 hover:text-white transition-all duration-300 ${className}`}
-    onClick={() => window.scrollTo(0, 0)}
-  >
-    {children}
-  </Link>
-);
+const NavLink = ({ to, children, className = "", mobile = false, onClick }) => {
+  const baseStyles = mobile
+    ? "text-amber-700 hover:bg-amber-100 hover:text-amber-900"
+    : "text-white hover:bg-amber-600";
+
+  return (
+    <Link
+      to={to}
+      className={`font-medium px-4 py-2 rounded-full transition-all duration-300 ${baseStyles} ${className}`}
+      onClick={(e) => {
+        window.scrollTo(0, 0);
+        if (onClick) onClick(e);
+      }}
+    >
+      {children}
+    </Link>
+  );
+};
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const controls = useAnimation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const shouldBeScrolled = window.scrollY > 50;
+      setIsScrolled(shouldBeScrolled);
+      controls.start({
+        opacity: shouldBeScrolled ? 1 : 0.9,
+        transition: { duration: 0.3, ease: "easeInOut" },
+      });
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [controls]);
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname, location.hash]);
 
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow" : "bg-transparent"
-      }`}
+    <motion.header
+      initial={{ opacity: 0.9 }}
+      animate={controls}
+      className={`fixed w-full z-50 transition-all duration-300 px-2 ${isScrolled
+          ? "bg-white/10 backdrop-blur-lg border border-white/30 shadow-md rounded-xl"
+          : "bg-white/10 backdrop-blur-lg border border-white/20 shadow-md rounded-xl"
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 relative">
-          <Link to="/home" className="flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+          <Link
+            to="/home"
+            className="flex items-center gap-3 hover:scale-105 transition-transform duration-300"
+            aria-label="Hans Shea Home"
+          >
             <img
               src={HansLogo}
               alt="Hans Organic Logo"
@@ -55,12 +80,19 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <nav aria-label="Primary Navigation" className="hidden md:flex space-x-4 absolute left-1/2 transform -translate-x-1/2">
+          {/* Desktop Navigation */}
+          <nav
+            aria-label="Primary Navigation"
+            className="hidden md:flex space-x-4 absolute left-1/2 transform -translate-x-1/2"
+          >
             {NAV_LINKS.map(({ name, to }) => (
-              <NavLink key={name} to={to}>{name}</NavLink>
+              <NavLink key={name} to={to}>
+                {name}
+              </NavLink>
             ))}
           </nav>
 
+          {/* Right Side */}
           <div className="flex items-center md:gap-4 gap-2">
             <Link
               to="/contact-us"
@@ -71,14 +103,14 @@ export default function Navbar() {
             <button
               className="md:hidden text-gray-800"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
 
-        {/* Animated Mobile Menu with Framer Motion */}
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.nav
@@ -87,21 +119,23 @@ export default function Navbar() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden px-4 bg-white/70 backdrop-blur-md rounded-2xl shadow-md mx-4 py-2 overflow-hidden"
+              className="md:hidden px-4 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-md mx-4 py-2 overflow-hidden"
             >
               <div className="flex flex-col space-y-3">
                 {NAV_LINKS.map(({ name, to }) => (
                   <NavLink
                     key={name}
                     to={to}
-                    className="text-lime-600 hover:bg-lime-200 hover:text-amber-700"
+                    mobile
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     {name}
                   </NavLink>
                 ))}
                 <NavLink
                   to="/contact-us"
-                  className="text-lime-600 hover:bg-lime-200 hover:text-amber-700"
+                  mobile
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
                 </NavLink>
@@ -110,6 +144,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </header>
+    </motion.header>
   );
 }

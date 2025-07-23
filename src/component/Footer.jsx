@@ -11,8 +11,8 @@ export default function Footer() {
         {/* Brand & Socials */}
         <div>
           <div className="flex items-center mb-4">
-            <h2 className="text-2xl font-bold text-amber-400">Hans Shea</h2>
-            <span className="text-2xl font-light text-green-400 ml-1">Organic</span>
+            <h2 className="text-2xl font-bold text-amber-400">Hans Organic</h2>
+            <span className="text-2xl font-light text-green-400 ml-1">Shea Butter</span>
           </div>
           <p className="text-gray-400 mb-6 leading-relaxed">
             Bringing you the finest organic shea butter from Ghana, ethically sourced and crafted with love for your skin's health.

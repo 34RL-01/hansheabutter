@@ -1,5 +1,6 @@
-import { Heart, Leaf, Users } from "lucide-react";
+import { Leaf, Users } from "lucide-react";
 import clearGgirl from "../assets/images/clearGgirl.jpeg";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -18,46 +19,70 @@ const features = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-amber-50 to-white">
+    <section id="about" className="py-20 bg-gradient-to-b from-green-50 to-amber-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image Side */}
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl max-h-[650px]">
               <img
                 src={clearGgirl}
-                alt="Smiling woman representing Hans Shea Organic shea butter"
-                className="w-full h-[650px] object-cover"
+                alt="Smiling woman representing Hans Organic shea butter"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Content Side */}
-          <div>
-            <div className="mb-6">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-between space-y-8"
+          >
+            {/* Header & Description */}
+            <div>
               <span className="text-amber-600 font-semibold text-lg">Our Story</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mt-2 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mt-2 mb-2 leading-tight">
                 Rooted in Nature.
                 <span className="text-green-700 block">Empowering Through Tradition.</span>
               </h2>
+              <p className="text-base text-gray-600 leading-relaxed">
+                Hans Organic is a proudly Ghanaian-owned natural beauty and wellness company committed to producing
+                100% organic, eco-friendly, and ethically sourced skincare products, with a primary focus on raw
+                unrefined shea butter. We believe in the power of African indigenous ingredients and traditional
+                knowledge, offering pure and effective natural products that nourish the skin, hair, and soul.
+                Founded on principles of sustainability, community empowerment, and health-conscious living, Hans
+                Organic sources its shea butter directly from women’s cooperatives in Northern Ghana, ensuring fair
+                trade practices and promoting rural economic development.
+              </p>
             </div>
 
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Hans Organic is a proudly Ghanaian-owned natural beauty and wellness company committed to producing 100% organic, eco-friendly, and ethically sourced skincare products, with a primary focus on raw unrefined shea butter. We believe in the power of African indigenous ingredients and traditional knowledge, offering pure and effective natural products that nourish the skin, hair, and soul.
-              Founded on principles of sustainability, community empowerment, and health-conscious living, Hans Organic sources its shea butter directly from women’s cooperatives in Northern Ghana, ensuring fair trade practices and promoting rural economic development.
-            </p>
-
-            <span className="text-green-500 font-semibold text-lg">Our Mission</span>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              <span className="font-semibold">Mission:</span>
-              "To deliver pure, organic shea butter sourced directly from Ghanaian women’s cooperatives—uplifting communities while providing natural, nourishing products for skin and hair."
-            </p>
-            <span className="text-green-500 font-semibold text-lg">Our Vision</span>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              <span className="font-semibold">Vision:</span>
-              "To become a trusted global brand rooted in Ghana's shea traditions—a catalyst for economic empowerment, sustainability, and organic body care excellence."
-            </p>
+            {/* Mission & Vision */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="group bg-white rounded-xl p-2 border border-gray-100 transition hover:shadow-md hover:scale-[1.02] cursor-pointer">
+                <h3 className="text-green-700 text-sm font-semibold mb-1">Our Mission</h3>
+                <p className="text-gray-700 text-sm leading-snug">
+                  To deliver pure, organic shea butter sourced directly from Ghanaian women’s cooperatives,
+                  uplifting communities while providing natural, nourishing products for skin and hair.
+                </p>
+              </div>
+              <div className="group bg-white rounded-xl p-2 border border-gray-100 transition hover:shadow-md hover:scale-[1.02] cursor-pointer">
+                <h3 className="text-green-700 text-sm font-semibold mb-1">Our Vision</h3>
+                <p className="text-gray-700 text-sm leading-snug">
+                  To become a trusted global brand rooted in Ghana's shea traditions, a catalyst for economic
+                  empowerment, sustainability, and organic body care excellence.
+                </p>
+              </div>
+            </div>
 
             {/* Features */}
             <div className="grid sm:grid-cols-2 gap-6">
@@ -71,7 +96,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
