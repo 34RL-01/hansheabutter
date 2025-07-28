@@ -1,6 +1,9 @@
-import { Facebook, Instagram, Mail, Phone, MapPin, Linkedin, LinkedinIcon } from 'lucide-react';
+import {Mail, Phone, MapPin} from 'lucide-react';
 import tiktokIcon from '../assets/images/tiktokIcon.png';
 import whatsappIcon from '../assets/images/whatsappIcon.png';
+import facebook from '../assets/images/facebook.png';
+import instagram from '../assets/images/instagram.png';
+import linkedin from '../assets/images/linkedin.png';
 import { Link } from 'react-router';
 
 export default function Footer() {
@@ -38,7 +41,6 @@ export default function Footer() {
             >
               <img src={tiktokIcon} alt="TikTok" className="w-5 h-5" />
             </a>
-
             <a
               href="https://www.facebook.com/share/1DJU9hdN62/"
               target="_blank"
@@ -46,9 +48,8 @@ export default function Footer() {
               aria-label="Facebook"
               className="bg-gray-800 hover:bg-amber-600 p-2.5 rounded-full transition hover:scale-110"
             >
-              <Facebook size={18} />
+              <img src={facebook} alt="facebook" className="w-5 h-5" />
             </a>
-
             <a
               href="https://www.instagram.com/hans.sheabutter?igsh=MWVpM3JmcWRrZHBybg=="
               target="_blank"
@@ -56,16 +57,16 @@ export default function Footer() {
               aria-label="Instagram"
               className="bg-gray-800 hover:bg-amber-600 p-2.5 rounded-full transition hover:scale-110"
             >
-              <Instagram size={18} />
+              <img src={instagram} alt="instagram" className="w-5 h-5" />
             </a>
             <a
               href="https://www.linkedin.com/in/hannahboateng"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
+              aria-label="linkedin"
               className="bg-gray-800 hover:bg-amber-600 p-2.5 rounded-full transition hover:scale-110"
             >
-              <LinkedinIcon size={18} />
+              <img src={linkedin} alt="linkedin" className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -109,7 +110,7 @@ export default function Footer() {
             </li>
             <li className="flex gap-2">
               <MapPin size={18} className="text-amber-400 mt-1" />
-              <span>GS-0155-3255<br />Pokuase, Accra</span>
+              <span>GC-128-9356<br />Pokuase, Accra</span>
             </li>
             <li>
               <Link to="/contact-us" className="hover:text-white">Need Help? Contact Us</Link>

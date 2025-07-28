@@ -39,7 +39,7 @@ export default function TestimonialCarousel() {
   const currentReview = testimonials[current];
 
   return (
-    <section className=" bg-gradient-to-b from-green-50 to-amber-100 text-white py-16 px-4 md:px-12">
+    <section className=" text-white py-16 px-4 md:px-12">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-semibold text-green-800 mb-4">What Our Clients Say</h2>
         <p className="text-amber-700 mb-8 max-w-xl mx-auto">
@@ -122,7 +122,7 @@ export default function TestimonialCarousel() {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-green-200 to-green-100 p-8 rounded-2xl">
+          <div className="p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
               Ready to Experience the Difference?
             </h3>

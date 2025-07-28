@@ -1,52 +1,47 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import face5 from '../assets/images/face5.jpg';
+import { Droplet, Leaf, Sprout, Flower } from 'lucide-react';
+import face4 from '../assets/images/face4.jpg';
 
 const benefits = [
-    { title: 'Deep Moisturization', description: 'Penetrates deep into skin layers, providing long-lasting hydration and preventing dryness.' },
-    { title: '100% Natural', description: 'Free from chemicals, preservatives, and artificial fragrances, ensuring pure nourishment.' },
-    { title: 'Ethically Sourced', description: "Directly sourced from women's cooperatives in Ghana, supporting fair trade practices." },
-    { title: 'Skin Protection', description: 'Natural SPF properties and antioxidants help protect against environmental damage.' },
-    { title: 'Anti-Aging Properties', description: 'Rich in vitamins A and E, helping to reduce fine lines and promote skin elasticity.' },
-    { title: 'Healing Properties', description: 'Natural anti-inflammatory compounds help soothe irritated and damaged skin.' },
-    { title: 'Quality & Tradition', description: 'Upholding Ghana’s longstanding shea butter heritage, combining craftsmanship with organic standards.' },
-    { title: 'Empowerment & Fairness', description: 'Most Ghana shea brands work closely with local women’s cooperatives, ensuring fair trade and sustainable livelihoods.' },
+    {
+        title: 'Deep Moisturization',
+        description: 'Penetrates deeply into the skin to lock in moisture and prevent dryness all day.',
+        icon: <Droplet className="text-white w-5 h-5" />,
+    },
+    {
+        title: 'Rich in Nutrients',
+        description: 'Packed with vitamins A and E, promoting healthy skin regeneration.',
+        icon: <Leaf className="text-white w-5 h-5" />,
+    },
+     {
+        title: 'Empowerment & Fairness',
+        description: 'Most Ghana shea brands work closely with local women’s cooperatives, ensuring fair trade and sustainable livelihoods.',
+        icon: <Sprout className="text-white w-5 h-5" />,
+    },
+    {
+        title: 'Naturally Sourced',
+        description: 'Harvested from organic shea nuts in Ghana with ethical and sustainable methods.',
+        icon: <Sprout className="text-white w-5 h-5" />,
+    },
+    {
+        title: 'Skin Protection',
+        description: 'Forms a natural barrier that shields skin from harsh environmental elements.',
+        icon: <Flower className="text-white w-5 h-5" />,
+    },
+    {
+        title: 'Anti-Aging Properties',
+        description: 'Rich in vitamins A and E, helping to reduce fine lines and promote skin elasticity.',
+        icon: <Leaf className="text-white w-5 h-5" />,
+    },
 ];
 
-const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.15, duration: 0.6, ease: 'easeOut' },
-    }),
-};
-
-export default function Benefits() {
-    const leftBenefits = benefits.slice(0, 4);
-    const rightBenefits = benefits.slice(4);
-
-    const renderBenefitCards = (items, offset = 0) =>
-        items.map((benefit, i) => (
-            <motion.div
-                key={i + offset}
-                className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transition-transform"
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                custom={i + offset}
-            >
-                <h4 className="text-lg font-semibold text-green-800 mb-2">{benefit.title}</h4>
-                <p className="text-gray-600">{benefit.description}</p>
-            </motion.div>
-        ));
-
+const Benefits = () => {
     return (
+
         <section
             id="benefits"
             aria-label="Shea Butter Benefits"
-            className="bg-gradient-to-b from-amber-50 to-white py-12 px-4 sm:px-6 relative scroll-mt-20 overflow-hidden"
+            className=" py-12 px-4 sm:px-6 relative scroll-mt-20 overflow-hidden"
         >
             <div className="max-w-7xl mx-auto text-center mb-10">
                 <h3 className="text-green-700 font-semibold text-sm md:text-lg uppercase tracking-wide">
@@ -60,42 +55,41 @@ export default function Benefits() {
                 </p>
             </div>
 
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-12 px-4">
-                {/* Left Benefits */}
-                <div className="flex flex-col flex-1 w-full">
-                    <div className="flex flex-col gap-2 mb-4">
-                        {renderBenefitCards(leftBenefits.slice(0, 2))}
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        {renderBenefitCards(leftBenefits.slice(2, 4), 2)}
-                    </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+                <div className="flex flex-col gap-8 md:w-1/3">
+                    {benefits.slice(0, 3).map((benefit, index) => (
+                        <div key={index} className="flex items-start gap-4">
+                            <div className="bg-yellow-500 p-3 rounded-full">
+                                {benefit.icon}
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold">{benefit.title}</h3>
+                                <p className="text-sm">{benefit.description}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
 
-                {/* Center Image */}
-                <motion.div
-                    className="flex justify-center items-center flex-shrink-0"
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                >
-                    <img
-                        src={face5}
-                        alt="Shea Butter Glow"
-                        className="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-lg border-4 border-amber-200"
-                    />
-                </motion.div>
+                <div className="w-full h-full md:w-1/4 relative">
+                    <img src={face4} alt="Shea Butter" className="object-contain w-full h-full rounded-2xl" />
+                </div>
 
-                {/* Right Benefits */}
-                <div className="flex flex-col flex-1 w-full">
-                    <div className="flex flex-col gap-2 mb-4">
-                        {renderBenefitCards(rightBenefits.slice(0, 2), 4)}
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        {renderBenefitCards(rightBenefits.slice(2, 4), 6)}
-                    </div>
+                <div className="flex flex-col gap-8 md:w-1/3">
+                    {benefits.slice(3).map((benefit, index) => (
+                        <div key={index} className="flex items-start gap-4">
+                            <div className="bg-yellow-500 p-3 rounded-full">
+                                {benefit.icon}
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold">{benefit.title}</h3>
+                                <p className="text-sm">{benefit.description}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
     );
-}
+};
+
+export default Benefits;

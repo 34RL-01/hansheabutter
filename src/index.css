@@ -140,6 +140,13 @@ h1, h2, h3, h4 {
 }
 
 /* @layer utilities {
+  .bg-gradient-to-b from-green-50 to-amber-100 {
+    background-image: linear-gradient(to bottom, #f9f5ee, #f0e6d2);
+  }
+  .bg-gradient-to-r from-green-50 to-amber-100 {
+    background-image: linear-gradient(to right, #d1e7dd, #cfe2f3);
+  }
+
   .bg-gradient-to-r {
     background-image: linear-gradient(to right, #f9f5ee, #f0e6d2);
   }

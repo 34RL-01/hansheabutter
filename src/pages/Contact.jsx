@@ -46,7 +46,7 @@ export default function ContactUs() {
 
       <ContactNavbar />
 
-      <section className="py-20 bg-gradient-to-b from-green-50 to-amber-50">
+      <section className="py-20 ">
         <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 pt-5 px-4 sm:px-6">
           {/* Contact Info */}
           <div className="pt-20">

@@ -55,7 +55,7 @@ export default function Product() {
         ));
 
     return (
-        <section id="products" className="py-20 bg-white">
+        <section id="products" className="py-20 ">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <span className="text-amber-600 font-semibold text-lg">Our Products</span>
