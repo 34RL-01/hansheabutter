@@ -36,7 +36,7 @@ export default function Navbar() {
           {/* Center Navigation */}
           <nav className="hidden md:flex space-x-4 absolute left-1/2 transform -translate-x-1/2 p-2 rounded-full ">
             <Link
-              to="/Home"
+              to="/home"
               className="text-amber-600 font-medium px-4 py-2 rounded-full border border-transparent hover:bg-amber-600 hover:text-white transition-all duration-300"
             >
               Home

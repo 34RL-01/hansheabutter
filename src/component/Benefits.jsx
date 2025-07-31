@@ -44,11 +44,11 @@ const Benefits = () => {
             className=" py-12 px-4 sm:px-6 relative scroll-mt-20 overflow-hidden"
         >
             <div className="max-w-7xl mx-auto text-center mb-10">
-                <h3 className="text-green-700 font-semibold text-sm md:text-lg uppercase tracking-wide">
+                <span className="text-amber-600 font-semibold md:text-lg">
                     Why Choose Us
-                </h3>
-                <h2 className="text-3xl md:text-5xl font-bold text-[#0A2540] font-display">
-                    Nature&apos;s Gift to <span className="text-amber-600">Your Skin</span>
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold text-[#0A2540] font-display mt-2 mb-6">
+                    Nature&apos;s Gift to <span className="text-green-700">Your Skin</span>
                 </h2>
                 <p className="text-sm md:text-base text-gray-600 max-w-xl mx-auto mt-3 font-body">
                     Explore the natural benefits of organic shea butter, beautifully arranged around its essence.

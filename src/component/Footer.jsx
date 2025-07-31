@@ -125,7 +125,15 @@ export default function Footer() {
           <span>© 2025 Hans Shea Organic. All rights reserved.</span>
           <div className="flex items-center gap-2">
             <span>Made by</span>
-            <span className="text-yellow-400">like34rl</span>
+            <a
+              href="https://my-portfolio-henna-psi-ct8114sq3q.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-600 hover:text-white transition-colors"
+              aria-label="Visit Developer's Portfolio"
+            >
+              <span className="text-yellow-400 font-semibold">like34rl</span>
+            </a>
           </div>
         </div>
       </div>

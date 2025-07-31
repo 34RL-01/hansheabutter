@@ -41,8 +41,8 @@ export default function TestimonialCarousel() {
   return (
     <section className=" text-white py-16 px-4 md:px-12">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-green-800 mb-4">What Our Clients Say</h2>
-        <p className="text-amber-700 mb-8 max-w-xl mx-auto">
+        <span className="text-3xl font-semibold text-amber-600 mb-4">What Our Clients Say</span>
+        <p className="text-green-800 mt-2 leading-tight mb-8 max-w-xl mx-auto">
           Real experiences from real people. Discover how our skincare made a difference.
         </p>
 
